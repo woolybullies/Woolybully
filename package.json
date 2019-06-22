@@ -1,0 +1,22 @@
+{
+  "name": "Woolybully",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woolybullies/Woolybully.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woolybullies/Woolybully/issues"
+  },
+  "homepage": "https://github.com/woolybullies/Woolybully#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
