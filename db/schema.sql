@@ -22,7 +22,6 @@ CREATE TABLE bullies(
 --log eachtime someone gets bullied to avoid duplicate bully notifications
 CREATE TABLE bully_log(
   id INT AUTO_INCREMENT NOT NULL,
-   VARCHAR(100)NOT NULL,
   user_id INT NOT NULL,
   goal_name VARCHAR(100)NOT NULL,
   bully_name VARCHAR(100)NOT NULL,
