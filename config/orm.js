@@ -1,7 +1,7 @@
 var connection = require("../config/config.js");
 
 function objToSql(obj) {
-    var array = [];
+    var arr = [];
 
     for (var key in obj) {
         var value = obj[key];
@@ -24,7 +24,10 @@ var orm = {
         "(" +
         cols.toString() +
         ")" + 
-        "VALUE"
+        "VALUE" +
+        "(" +
+        vals +
+        ")";
 
         console.log(dbQuery);
 
