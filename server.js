@@ -11,7 +11,14 @@ app.use(express.json());
 
 app.listen(port);
 
+
+
+var routes = require("./controllers/woolyController");
+
+app.use(routes);
+// console.log(routes)
+
 //@TODO Delete below after you verify the the app is working
-app.route('/').get(function(request, response) {
-    response.json(config);
-});
+// app.route('/').get(function(request, response) {
+//     response.json(config);
+// });
