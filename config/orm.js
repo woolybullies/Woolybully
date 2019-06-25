@@ -17,7 +17,7 @@ function objToSql(obj) {
 
 
 var orm = {
-
+  
     insertOne: function(table, cols, vals, cb){
         var dbQuery = "INSERT INTO" + 
         table + 
@@ -38,8 +38,28 @@ var orm = {
             cb(res);
         });
     },
+    create: function(table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
+    
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+    
+        console.log(queryString);
+    
+        connection.query(queryString, vals, function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      },
 
-    selectOne: function(table, cb){
+    all: function(table, cb){
         var dbQuery = "SELECT * FROM " + table + ";";
 
         connection.query(dbQuery, function (err, res) {
