@@ -2,11 +2,6 @@ var orm = require("../config/orm.js");
 
 
 var bully = {
-    all: function (cb) {
-        orm.all("test", function (res) {
-            cb(res);
-        });
-    },
 
     insertOne: function (cb) {
         orm.all("users", function (res) {

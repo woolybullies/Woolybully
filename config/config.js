@@ -1,22 +1,13 @@
-
-
-var mysql = require('mysql');
-
-var connection;
-if (process.env.DB_URL) {
-    // Database is JawsDB on Heroku
-    connection = mysql.createConnection(process.env.DB_URL);
-} else {
-    // Database is local
-    connection = mysql.createConnection({
-        port: 3306,
-        host: 'localhost',
-        user: 'qvi25n47mbm3c8da',
-        password: ' ffx51olsemcudjmv',
-        database: 'w5rf5aqxit0qej3v'
-    })
+let config = {
+    local: {
+        mysql:{
+            url: process.env.DB_URL
+        },
+        apiKeys:{}
+    },
+    prod: {
+        mysql:{},
+        apiKeys:{}
+    }
 };
-
-var mysql = require('mysql');
-
-module.exports = connection;
+module.exports = config[process.env.APP_ENV || 'local'];
