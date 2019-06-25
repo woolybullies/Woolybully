@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 9000;
-const config = require('./config');
+const config = require('./config/config');
 
 app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
 app.use(express.urlencoded({extended: true}));
