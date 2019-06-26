@@ -3,7 +3,7 @@ var orm = require("../config/orm.js");
 //change bully js to users 
 
 
-var bully = {
+var users = {
     all: function (cb) {
         orm.all("users", function (res) {
             cb(res);
@@ -33,4 +33,4 @@ var bully = {
         });
     }
 }
-module.exports = bully;
+module.exports = users;

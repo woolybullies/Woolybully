@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
-var routes = require("./controllers/woolyController");
+var routes = require("./controllers/routes");
 
 app.use(routes);
 

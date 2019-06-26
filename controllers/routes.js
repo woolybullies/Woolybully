@@ -2,13 +2,13 @@ var express = require("express");
 
 var router = express.Router();
 
-var bully = require("../models/bully");
+var users = require("../models/users");
 var categories = require("../models/categories");
 
 //get requests go here
 
 router.get("/api/users", function (request, res) {
-    bully.all(function (data) {
+    users.all(function (data) {
 
         var hbsObject = {
             test: data
@@ -31,6 +31,18 @@ router.get("/api/categories", function (request, res) {
 
 //post requests go here
 
+// router.post("/api/users", function(req, res) {
+//     bully.create([
+//       "name", "email", "permission", "aaa_id"
+//     ], [
+//       req.body.name, req.body.email, req.body.permission, req.body.aaa_id
+//     ], function(result) {
+//       // Send back the ID of the new quote
+//       res.json({ user_id: result.insertId });
+//     });
+//   });
+
+
 router.post("/api/categories", function (req, res) {
     console.log(req.body);
     categories.insertOne(req.body['category_name'] , req.body.category_type , function (data) {
@@ -43,16 +55,6 @@ router.post("/api/categories", function (req, res) {
     });
 });
 
-// router.post("/api/users", function(req, res) {
-//     bully.create([
-//       "name", "email", "permission", "aaa_id"
-//     ], [
-//       req.body.name, req.body.email, req.body.permission, req.body.aaa_id
-//     ], function(result) {
-//       // Send back the ID of the new quote
-//       res.json({ user_id: result.insertId });
-//     });
-//   });
 
 
 module.exports = router;
