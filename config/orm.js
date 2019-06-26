@@ -5,12 +5,12 @@ function objToSql(obj) {
 
     for (var key in obj) {
         var value = obj[key];
-    }
-    if (Object.hasOwnProperty.call(ob, key)) {
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-            value = "'" + value + "'";
+        if (Object.hasOwnProperty.call(obj, key)) {
+
+            value = connection.escape(value);
+
+            arr.push(key + "=" + value);
         }
-        arr.push(key + "=" + value);
     }
     return arr.toString();
 }
@@ -18,7 +18,7 @@ function objToSql(obj) {
 
 var orm = {
 
-    all: function(table, cb){
+    all: function (table, cb) {
         var dbQuery = "SELECT * FROM " + table + ";";
 
         connection.query(dbQuery, function (err, res) {
@@ -29,17 +29,17 @@ var orm = {
             console.log(table);
         });
     },
-  
-    insertOne: function(table, cols, vals, cb){
-        var dbQuery = "INSERT INTO " + 
-        table + 
-        "(" +
-        cols.toString() +
-        ")" + 
-        "VALUE" +
-        "(" +
-        vals +
-        ")";
+
+    insertOne: function (table, cols, vals, cb) {
+        var dbQuery = "INSERT INTO " +
+            table +
+            "(" +
+            cols.toString() +
+            ")" +
+            "VALUE" +
+            "(" +
+            vals +
+            ")";
 
         console.log(dbQuery);
 
@@ -50,35 +50,13 @@ var orm = {
             cb(res);
         });
     },
-    // create: function(table, cols, vals, cb) {
-    //     var queryString = "INSERT INTO " + table;
-    
-    //     queryString += " (";
-    //     queryString += cols.toString();
-    //     queryString += ") ";
-    //     queryString += "VALUES (";
-    //     queryString += printQuestionMarks(vals.length);
-    //     queryString += ") ";
-    
-    //     console.log(queryString);
-    
-    //     connection.query(queryString, vals, function(err, result) {
-    //       if (err) {
-    //         throw err;
-    //       }
-    
-    //       cb(result);
-    //     });
-    //   },
 
-   
-
-    updateOne: function(table, objectColVals, condition, cb){
-        var dbQuery = "UPDATE" +
+    updateOne: function (table, objectColVals, condition, cb) {
+        var dbQuery = "UPDATE " +
             table +
-            "SET" +
+            " SET " +
             objToSql(objectColVals) +
-            "WHERE" +
+            " WHERE " +
             condition;
 
         connection.query(dbQuery, function (err, res) {
@@ -89,14 +67,12 @@ var orm = {
         });
     },
 
-    deleteOne: function(table, condition, cb){
-        var dbQuery = "DELETE FROM" +
-        table + 
-        "WHERE" +
-        condition;
-
-        console.log(dbQuery);
-
+    deleteOne: function (table, condition, cb) {
+        var dbQuery = "DELETE FROM " +
+            table +
+            " WHERE " +
+            condition;
+            
         connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;

@@ -1,8 +1,4 @@
 var orm = require("../config/orm.js");
-
-//change bully js to users 
-
-
 var users = {
     all: function (cb) {
         orm.all("users", function (res) {
@@ -10,25 +6,20 @@ var users = {
         });
     },
 
-    insertOne: function (cb) {
-        orm.insertOne("users", function (res) {
+    insertOne: function (name, email, permission, aaa_id, cb) {
+        orm.insertOne("users","name, email, permission, aaa_id", "'" + name + "','" + email + "', '" + permission + "','" + aaa_id + "'",  function (res) {
             cb(res);
         });
     },
 
-    selectOne: function (cols, vals, cb) {
-        orm.selectOne("users", cols, vals, function (res) {
+    updateOne: function (updateBody, userId,  cb) {
+        console.log(userId);
+        orm.updateOne("users", updateBody, "user_id = " + userId , function (res) {
             cb(res);
         });
     },
-
-    update: function (objColVals, condition, cb) {
-        orm.update("users", objColVals, condition, function (res) {
-            cb(res);
-        });
-    },
-    delete: function (condition, cb) {
-        orm.delete("users", condition, function (res) {
+    deleteOne: function (userId, cb) {
+        orm.deleteOne("users", "user_id = " + userId, function (res) {
             cb(res);
         });
     }

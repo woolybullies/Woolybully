@@ -14,10 +14,17 @@ var categories = {
         });
     },
 
-    selectOne: function (cols, vals, cb) {
-        orm.selectOne("categories", cols, vals, function (res) {
+    updateOne: function (objColVals, condition, cb) {
+        orm.update("categories", objColVals, condition, function (res) {
             cb(res);
         });
     },
+
+    deleteOne: function (condition, cb) {
+        orm.delete("categories", condition, function (res) {
+            cb(res);
+        });
+    }
+    
 }
 module.exports = categories;
