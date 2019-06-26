@@ -1,17 +1,15 @@
 var orm = require("../config/orm.js");
 
-//change bully js to users 
 
-
-var bully = {
+var categories = {
     all: function (cb) {
-        orm.all("users", function (res) {
+        orm.all("categories", function (res) {
             cb(res);
         });
     },
 
-    insertOne: function (cb) {
-        orm.insertOne("users", function (res) {
+    insertOne: function (category_name, category_type, cb) {
+        orm.insertOne("categories", "category_name, category_type", "'"+ category_name +"', '"+ category_type +"'" , function (res) {
             cb(res);
         });
     },
@@ -33,4 +31,4 @@ var bully = {
         });
     }
 }
-module.exports = bully;
+module.exports = categories;

@@ -17,9 +17,21 @@ function objToSql(obj) {
 
 
 var orm = {
+
+    all: function(table, cb){
+        var dbQuery = "SELECT * FROM " + table + ";";
+
+        connection.query(dbQuery, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+            console.log(table);
+        });
+    },
   
     insertOne: function(table, cols, vals, cb){
-        var dbQuery = "INSERT INTO" + 
+        var dbQuery = "INSERT INTO " + 
         table + 
         "(" +
         cols.toString() +
@@ -38,37 +50,28 @@ var orm = {
             cb(res);
         });
     },
-    create: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
+    // create: function(table, cols, vals, cb) {
+    //     var queryString = "INSERT INTO " + table;
     
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
+    //     queryString += " (";
+    //     queryString += cols.toString();
+    //     queryString += ") ";
+    //     queryString += "VALUES (";
+    //     queryString += printQuestionMarks(vals.length);
+    //     queryString += ") ";
     
-        console.log(queryString);
+    //     console.log(queryString);
     
-        connection.query(queryString, vals, function(err, result) {
-          if (err) {
-            throw err;
-          }
+    //     connection.query(queryString, vals, function(err, result) {
+    //       if (err) {
+    //         throw err;
+    //       }
     
-          cb(result);
-        });
-      },
+    //       cb(result);
+    //     });
+    //   },
 
-    all: function(table, cb){
-        var dbQuery = "SELECT * FROM " + table + ";";
-
-        connection.query(dbQuery, function (err, res) {
-            if (err) {
-                throw err;
-            }
-            cb(res);
-        });
-    },
+   
 
     updateOne: function(table, objectColVals, condition, cb){
         var dbQuery = "UPDATE" +
