@@ -1,36 +1,30 @@
-// var orm = require("../config/orm.js");
-
-// //change bully js to users 
+var orm = require("../config/orm.js");
 
 
-// var goal_config = {
-//     all: function (cb) {
-//         orm.all("users", function (res) {
-//             cb(res);
-//         });
-//     },
+var goal_config = {
+    
+    all: function (cb) {
+        orm.all("goals", function (res) {
+            cb(res);
+        });
+    },
 
-//     insertOne: function (cb) {
-//         orm.insertOne("users", function (res) {
-//             cb(res);
-//         });
-//     },
+    insertOne: function (user_id, name, category_id, daily_occurance, importance, day_start, day_end, allow_wake, status,cb) {
 
-//     selectOne: function (cols, vals, cb) {
-//         orm.selectOne("users", cols, vals, function (res) {
-//             cb(res);
-//         });
-//     },
+        orm.insertOne("goals", "user_id, name, category_id, daily_occurance, importance, day_start, day_end, allow_wake, status", "'" +  user_id + "','" + name + "','" + category_id + "','" + daily_occurance + "','" + importance + "','" + day_start +  "','" + day_end + "','" + allow_wake + "','" + status + "'",  function (res) {
+            cb(res);
+        });
+    },
 
-//     update: function (objColVals, condition, cb) {
-//         orm.update("users", objColVals, condition, function (res) {
-//             cb(res);
-//         });
-//     },
-//     delete: function (condition, cb) {
-//         orm.delete("users", condition, function (res) {
-//             cb(res);
-//         });
-//     }
-// }
-// module.exports = goal_config;
+    updateOne: function (updateGoal, id, cb) {
+        orm.updateOne("goals", updateGoal, "id =" + id, function (res) {
+            cb(res);
+        });
+    },
+    deleteOne: function (id, cb) {
+        orm.deleteOne("goals", "id =" + id, function (res) {
+            cb(res);
+        });
+    }
+}
+module.exports = goal_config;
