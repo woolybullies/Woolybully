@@ -62,7 +62,6 @@ CREATE TABLE  users(
   user_id INT AUTO_INCREMENT NOT NULL,
   name VARCHAR(100)NOT NULL,
   email VARCHAR(100)NOT NULL,
-  permission VARCHAR(100)NOT NULL,
-  aaa_id INT NOT NULL,
+  phone VARCHAR(15)NOT NULL
   PRIMARY KEY (user_id)
 );
