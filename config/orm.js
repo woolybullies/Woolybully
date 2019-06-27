@@ -17,9 +17,25 @@ function objToSql(obj) {
 
 
 var orm = {
+<<<<<<< Updated upstream
 
     all: function (table, cb) {
         var dbQuery = "SELECT * FROM " + table + ";";
+=======
+  
+    insertOne: function(table, cols, vals, cb){
+        var dbQuery = "INSERT INTO" + 
+        table + 
+        "(" +
+        cols.toString() +
+        ")" + 
+        "VALUE" +
+        "(" +
+        vals +
+        ")";
+
+        console.log(dbQuery);
+>>>>>>> Stashed changes
 
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -29,7 +45,28 @@ var orm = {
             console.log(table);
         });
     },
+    create: function(table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
+    
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+    
+        console.log(queryString);
+    
+        connection.query(queryString, vals, function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      },
 
+<<<<<<< Updated upstream
     insertOne: function (table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " +
             table +
@@ -42,6 +79,10 @@ var orm = {
             ")";
 
         console.log(dbQuery);
+=======
+    all: function(table, cb){
+        var dbQuery = "SELECT * FROM " + table + ";";
+>>>>>>> Stashed changes
 
         connection.query(dbQuery, function (err, res) {
             if (err) {

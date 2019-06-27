@@ -21,6 +21,13 @@ app.listen(port, () => console.log(`app listening on port ${port}!`))
 
 // console.log(routes)
 
+
+
+var routes = require("./controllers/woolyController");
+
+app.use(routes);
+// console.log(routes)
+
 //@TODO Delete below after you verify the the app is working
 // app.route('/').get(function(request, response) {
 //     response.json(config);
