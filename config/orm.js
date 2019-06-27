@@ -17,11 +17,6 @@ function objToSql(obj) {
 
 
 var orm = {
-<<<<<<< Updated upstream
-
-    all: function (table, cb) {
-        var dbQuery = "SELECT * FROM " + table + ";";
-=======
   
     insertOne: function(table, cols, vals, cb){
         var dbQuery = "INSERT INTO" + 
@@ -35,7 +30,6 @@ var orm = {
         ")";
 
         console.log(dbQuery);
->>>>>>> Stashed changes
 
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -66,23 +60,8 @@ var orm = {
         });
       },
 
-<<<<<<< Updated upstream
-    insertOne: function (table, cols, vals, cb) {
-        var dbQuery = "INSERT INTO " +
-            table +
-            "(" +
-            cols.toString() +
-            ")" +
-            "VALUE" +
-            "(" +
-            vals +
-            ")";
-
-        console.log(dbQuery);
-=======
     all: function(table, cb){
         var dbQuery = "SELECT * FROM " + table + ";";
->>>>>>> Stashed changes
 
         connection.query(dbQuery, function (err, res) {
             if (err) {
