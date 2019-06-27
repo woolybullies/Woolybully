@@ -2,12 +2,12 @@
 CREATE TABLE bullies(
   id INT AUTO_INCREMENT NOT NULL,
   name VARCHAR(100)NOT NULL,
-  bully_type VARCHAR(100)NOT NULL,
+  type VARCHAR(100)NOT NULL,
   --tie bully to category and for use with other API's like giphy
   category_id INT NOT NULL,
-  bully_strength INT NOT NULL,
+  strength INT NOT NULL,
   --how much money they can take - for expansion
-  bully_power DECIMAL(10,2) NULL,
+  power DECIMAL(10,2) NULL,
   --phrases the bully will use
   phrase_a VARCHAR(100)NOT NULL,
   phrase_b VARCHAR(100)NOT NULL,
@@ -27,23 +27,23 @@ CREATE TABLE bully_log(
   bully_name VARCHAR(100)NOT NULL,
   phrase_used VARCHAR(100)NOT NULL,
   money_taken DECIMAL(10,2) NULL,
-  TIMESTAMP
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
 --goals and categories
 CREATE TABLE categories(
   id INT AUTO_INCREMENT NOT NULL,
-  category_name VARCHAR(100)NOT NULL,
-  category_type VARCHAR(100)NOT NULL,
+  name VARCHAR(100)NOT NULL,
+  type VARCHAR(100)NOT NULL,
   PRIMARY KEY (id)
 );
 
 
 --configuration of user goals
-CREATE TABLE goal_config(
+CREATE TABLE goals(
   id INT AUTO_INCREMENT NOT NULL,
   user_id INT NOT NULL,
-  goal_name VARCHAR(100)NOT NULL,
+  name VARCHAR(100)NOT NULL,
   category_id INT NOT NULL,
   daily_occurance INT(100)NOT NULL,
   importance INT(100)NOT NULL,
@@ -54,7 +54,8 @@ CREATE TABLE goal_config(
   allow_wake INT NOT NULL,
   --tre false for active not active
   status BOOLEAN NOT NULL,
-  aaa_id INT NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  lastUpdated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
 
@@ -63,5 +64,7 @@ CREATE TABLE  users(
   name VARCHAR(100)NOT NULL,
   email VARCHAR(100)NOT NULL,
   phone VARCHAR(15)NOT NULL
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  lastUpdated TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (user_id)
 );
