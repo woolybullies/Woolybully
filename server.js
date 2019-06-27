@@ -23,7 +23,7 @@ app.listen(port, () => console.log(`app listening on port ${port}!`))
 
 
 
-var routes = require("./controllers/woolyController");
+var routes = require("./controllers/routes");
 
 app.use(routes);
 // console.log(routes)
