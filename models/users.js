@@ -6,8 +6,8 @@ var users = {
         });
     },
 
-    insertOne: function (name, email, permission, aaa_id, cb) {
-        orm.insertOne("users","name, email, permission, aaa_id", "'" + name + "','" + email + "', '" + permission + "','" + aaa_id + "'",  function (res) {
+    insertOne: function (name, email, phone, cb) {
+        orm.insertOne("users","name, email, phone", "'" + name + "','" + email + "', '" + phone +  "'",  function (res) {
             cb(res);
         });
     },

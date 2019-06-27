@@ -29,14 +29,12 @@ router.put("/api/users/:userId", function (req, res) {
 });
 
 router.post("/api/users", function (req, res) {
-    users.insertOne(req.body.name, req.body.email, req.body.permisson, req.body.aaa_id, function (data) {
+    console.log(req.body)
+    users.insertOne(req.body.name, req.body.email, req.body.phone,  function (data) {
 
-        var hbsObject = {
-            test: data
-        };
-        console.log(hbsObject);
         res.json(data);
     });
+    res.json({test:true});
 });
 
 router.delete("/api/users/:userId", function (req, res) {
