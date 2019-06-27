@@ -1,43 +1,45 @@
-// const CronJob = require('../lib/cron.js').CronJob;
+var cron = require('node-cron');
+ 
 
-// console.log('Before job instantiation');
-// const job = new CronJob('*/5 * * * * *', function() {
-// 	const d = new Date();
-// 	console.log('First:', d);
-// });
+var users = [
+    {
+      name: "bill",
+      time: '* * * * * *',
+      message: "Gym",
+      tUN: "bill@gmail",
+      tPW: "iashf84",
+    },
+    {
+        name: "tim",
+        time: '*/2 * * * *',
+        message: "Dishes",
+        tUN: "tim@gmail",
+        tPW: "igsgrg",
+    },
+    {
+        name: "bill",
+        time: '*/3 * * * *',
+        message: "Save $10",
+        tUN: "bill@gmail",
+        tPW: "kh8yyhuhi",
+    }
+  ];
 
-// const job2 = new CronJob('*/8 * * * * *', function() {
-// 	const d = new Date();
-// 	console.log('Second:', d);
-// });
-// console.log('After job instantiation');
-// job.start();
-// job2.start();
-
-//what do I need to run a job
-//goals - user_id, name, day of week, time of day
-//
-
-const CronJob = require('../lib/cron.js').CronJob;
-
-let isRunning = false;
-console.log('Before job instantiation');
-const job = new CronJob({
-	cronTime: '* * * * * *',
-	onTick: function() {
-		const d = new Date();
-		console.log('Check every second:', d, ', isRunning: ', isRunning);
-
-		if (!isRunning) {
-			isRunning = true;
-
-			setTimeout(function() {
-				console.log('Long running onTick complete:', new Date());
-				isRunning = false;
-			}, 3000);
-			console.log('setTimeout triggered:', new Date());
-		}
-	}
-});
-console.log('After job instantiation');
-job.start();
+function push (){
+    
+    for (i = 0; i < users.length; i++){
+		let name = users[i].name
+		let time = users[i].name
+		let message = users[i].message
+		let tUn = users[i].tUN
+		let tPW = users[i].tPW
+        console.log(users[i].name)
+        cron.schedule(users[i].time, () => {
+            let msg = `Oh ${name}, guess who didnt ${message} today`
+            
+            console.log(`mock ajax call for twitter UN:${tUn} PW:${tPW}`)
+            console.log(msg);
+          });
+    }
+}
+push()
