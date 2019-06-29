@@ -37,7 +37,7 @@ router.delete("/api/users/:userId", function (req, res) {
 //goals routes 
 
 router.get("/api/goals", function (request, res) {
-    goal_config.all(function (data) {
+    goal_config.allGoals(function (data) {
         res.json(data);
     });
 });

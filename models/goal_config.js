@@ -25,6 +25,12 @@ var goal_config = {
         orm.deleteOne("goals", "id =" + id, function (res) {
             cb(res);
         });
-    }
+    },
+    allGoals: function (cb) {
+        orm.allGoals("goals", "users", "name", "daily_occurance", "phone", "user_id", function (res) {
+            cb(res);
+        });
+    },
+
 }
 module.exports = goal_config;

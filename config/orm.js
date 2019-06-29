@@ -99,7 +99,20 @@ var orm = {
             }
             cb(res);
         });
-    }
+    },
+    allGoals: function(tableOne, tableTwo, table1Col1, table1Col2, table2Col1, tableJoin, cb){
+        var dbQuery = `SELECT ${tableOne}.${table1Col1} , ${tableOne}.${table1Col2} , ${tableTwo}.${table2Col1}
+        FROM ${tableOne}, ${tableTwo}
+        WHERE ${tableTwo}.${tableJoin} = ${tableOne}.${tableJoin};
+        `;
+
+        connection.query(dbQuery, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
+    },
 }
 
 module.exports = orm;

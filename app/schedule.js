@@ -43,10 +43,11 @@ function push() {
   const client = require('twilio')(accountSid, authToken);
   for (i = 0; i < users.length; i++) {
     let name = users[i].name
-    let time = users[i].name
-    let message = users[i].message
-    let tUn = users[i].tUN
-    let tPW = users[i].tPW
+    let dailyOcccurance = users[i].time
+    let goalName = users[i].goal_name
+    let phone = users[i].phone
+    // let tUn = users[i].tUN
+    // let tPW = users[i].tPW
     console.log(users[i].name)
     cron.schedule(users[i].time, () => {
       let msg = `Oh ${name}, guess who didnt ${message} today`
