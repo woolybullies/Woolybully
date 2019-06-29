@@ -6,6 +6,7 @@ var users = require("../models/users");
 var categories = require("../models/categories");
 var goal_config = require("../models/goal_config");
 
+
 //user routes 
 
 router.get("/api/users", function (request, res) {
@@ -39,15 +40,28 @@ router.delete("/api/users/:userId", function (req, res) {
 router.get("/api/goals", function (request, res) {
     goal_config.allGoals(function (data) {
         res.json(data);
+     
     });
 });
 
 router.post("/api/goals", function (req, res) {
     console.log(req.body)
     goal_config.insertOne(req.body.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status,  function (data) {
+        // sched.push({
+        //     name: "tim",
+        // time: '*/1 * * * *',
+        // message: "Dishes",
 
+        // })
         res.json(data);
+
     });
+    // goal_config.allGoals(function (data) {
+    //     var goalFire = data
+    //     res.json(data);
+    //     console.log(data)
+    //     sched.push(data)
+    // });
 });
 
 router.put("/api/goals/:id", function (req, res) {
@@ -91,7 +105,8 @@ router.delete("/api/goals/:id", function (req, res) {
 
 
 
-module.exports = router;
+module.exports = router
+
 
 
 

@@ -1,68 +1,51 @@
 var cron = require('node-cron');
+var goal_config = require('../models/goal_config')
 
 
 
-// client.messages
-//   .create({
-//     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-//     from: '+13125846791',
-//     to: '+17084769340'
+
+
+
+// cron.schedule('*/2 * * * * *', () => {
+//   var d = new Date();
+// var n = d.getHours();
+//   console.log("running", n )
+//   goal_config.allGoals(function (result){
+//     console.log(result)
 //   })
-//   .then(message => console.log(message.sid));
+
+  
+// });
 
 
 
-var users = [
-  // {
-  //   name: "bill",
-  //   time: '* * * * * *',
-  //   message: "Gym",
-  //   tUN: "bill@gmail",
-  //   tPW: "iashf84",
-  // },
-  {
-    name: "tim",
-    time: '*/1 * * * *',
-    message: "Dishes",
-    tUN: "tim@gmail",
-    tPW: "igsgrg",
-  }
-  // ,
-  // {
-  //   name: "bill",
-  //   time: '*/3 * * * *',
-  //   message: "Save $10",
-  //   tUN: "bill@gmail",
-  //   tPW: "kh8yyhuhi",
-  // }
-];
 
-function push() {
-  const accountSid = 'AC5e07a56b471f643ce750033518d5bed1';
-  const authToken = '30c27ebf3d2276a0276b576905ca2410';
-  const client = require('twilio')(accountSid, authToken);
-  for (i = 0; i < users.length; i++) {
-    let name = users[i].name
-    let dailyOcccurance = users[i].time
-    let goalName = users[i].goal_name
-    let phone = users[i].phone
-    // let tUn = users[i].tUN
-    // let tPW = users[i].tPW
-    console.log(users[i].name)
-    cron.schedule(users[i].time, () => {
-      let msg = `Oh ${name}, guess who didnt ${message} today`
 
-      // console.log(`mock ajax call for twitter UN:${tUn} PW:${tPW}`)
-      console.log(msg);
-      client.messages
-        .create({
-          body: `${msg}`,
-          from: '+13125846791',
-          to: '+17084769340'
-        })
-        .then(message => console.log(message.sid));
+// function push() {
+//   const accountSid = 'AC5e07a56b471f643ce750033518d5bed1';
+//   const authToken = '30c27ebf3d2276a0276b576905ca2410';
+//   const client = require('twilio')(accountSid, authToken);
+//   for (i = 0; i < userObject.length; i++) {
+//     let name = userObject[i].name
+//     let message = userObject[i].daily_occurance
+//     let phone = userObject[i].phone
+//     // let tUn = userObject[i].tUN
+//     // let tPW = userObject[i].tPW
+//     console.log(userObject[i].name)
+//     cron.schedule(userObject[i].time, () => {
+//       let msg = `Oh ${name}, guess who didnt ${message} today`
 
-    });
-  }
-}
-push()
+//       // console.log(`mock ajax call for twitter UN:${tUn} PW:${tPW}`)
+//       console.log(msg);
+//       client.messages
+//         .create({
+//           body: `${msg}`,
+//           from: '+13125846791',
+//           to: '+17084769340'
+//         })
+//         .then(message => console.log(message.sid));
+
+//     });
+//   }
+// }
+// push()
