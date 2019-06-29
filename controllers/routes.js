@@ -44,7 +44,7 @@ router.get("/api/goals", function (request, res) {
 
 router.post("/api/goals", function (req, res) {
     console.log(req.body)
-    goal_config.insertOne(req.body.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.importance, req.body.day_start, req.body.day_end, req.body.allow_wake, req.body.status,  function (data) {
+    goal_config.insertOne(req.body.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status,  function (data) {
 
         res.json(data);
     });

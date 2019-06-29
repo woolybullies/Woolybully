@@ -9,9 +9,9 @@ var goal_config = {
         });
     },
 
-    insertOne: function (user_id, name, category_id, daily_occurance, importance, day_start, day_end, allow_wake, status,cb) {
+    insertOne: function (user_id, name, category_id, daily_occurance, allow_wake, status,cb) {
 
-        orm.insertOne("goals", "user_id, name, category_id, daily_occurance, importance, day_start, day_end, allow_wake, status", "'" +  user_id + "','" + name + "','" + category_id + "','" + daily_occurance + "','" + importance + "','" + day_start +  "','" + day_end + "','" + allow_wake + "','" + status + "'",  function (res) {
+        orm.insertOne("goals", "user_id, name, category_id, daily_occurance, allow_wake, status", "'" +  user_id + "','" + name + "','" + category_id + "','" + daily_occurance + "','" + allow_wake + "','" + status + "'",  function (res) {
             cb(res);
         });
     },
