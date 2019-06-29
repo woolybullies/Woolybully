@@ -29,7 +29,7 @@ function push (){
     
     for (i = 0; i < users.length; i++){
 		let name = users[i].name
-		let time = users[i].name
+		let time = users[i].time
 		let message = users[i].message
 		let tUn = users[i].tUN
 		let tPW = users[i].tPW

@@ -8,7 +8,7 @@ const mySqlConnection = require('./config/config');
 mySqlConnection.connect();
 
 
-app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
+app.use(express.static(__dirname + '/public')); // you should change this to be wherever your html files are
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
