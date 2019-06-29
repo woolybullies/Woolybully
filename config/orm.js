@@ -19,9 +19,9 @@ function objToSql(obj) {
 var orm = {
   
     insertOne: function(table, cols, vals, cb){
-        var dbQuery = "INSERT INTO" + 
+        var dbQuery = "INSERT INTO " + 
         table + 
-        "(" +
+        " (" +
         cols.toString() +
         ")" + 
         "VALUE" +

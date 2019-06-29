@@ -23,7 +23,7 @@ router.put("/api/users/:userId", function (req, res) {
 router.post("/api/users", function (req, res) {
     console.log(req.body)
     users.insertOne(req.body.name, req.body.email, req.body.phone,  function (data) {
-        res.json(data);
+        // res.json(data);
     });
     res.json({test:true});
 });

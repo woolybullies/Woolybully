@@ -12,7 +12,7 @@ if (process.env.DB_URL) {
         port: 3306,
         host: 'v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         user: 'qvi25n47mbm3c8da',
-        password: ' ffx51olsemcudjmv',
+        password: 'ffx51olsemcudjmv',
         database: 'w5rf5aqxit0qej3v'
     })
 };
