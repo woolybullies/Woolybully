@@ -27,10 +27,13 @@ var goal_config = {
         });
     },
     allGoals: function (cb) {
-        orm.allGoals("goals", "users", "name", "daily_occurance", "phone", "user_id", function (res) {
+        orm.allGoals("goals", "users", "name", "daily_occurance", "phone", "last_fired", "status", "id", "user_id", function (res) {
             cb(res);
+            // console.log(res)
         });
     },
+   
+    
 
 }
 module.exports = goal_config;

@@ -72,13 +72,18 @@ var orm = {
     },
 
     updateOne: function (table, objectColVals, condition, cb) {
+
+        console.log(`
+        table: ${table}
+        object ${objectColVals}
+        condition ${condition}`)
         var dbQuery = "UPDATE " +
             table +
             " SET " +
             objToSql(objectColVals) +
             " WHERE " +
             condition;
-
+        console.log(`dbQuery ${dbQuery}`)
         connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;
@@ -100,10 +105,12 @@ var orm = {
             cb(res);
         });
     },
-    allGoals: function (tableOne, tableTwo, table1Col1, table1Col2, table2Col1, tableJoin, cb) {
-        var dbQuery = `SELECT ${tableOne}.${table1Col1} , ${tableOne}.${table1Col2} , ${tableTwo}.${table2Col1}
+    allGoals: function (tableOne, tableTwo, table1Col1, table1Col2, table2Col1, table1Col3, table1Col4, table1col5, tableJoin, cb) {
+        var dbQuery = `SELECT ${tableOne}.${table1col5} , ${tableOne}.${table1Col1} , ${tableOne}.${table1Col2} , ${tableTwo}.${table2Col1} , ${tableOne}.${table1Col3}, ${tableOne}.${table1Col4}
         FROM ${tableOne}, ${tableTwo}
-        WHERE ${tableTwo}.${tableJoin} = ${tableOne}.${tableJoin};
+        WHERE ${tableTwo}.${tableJoin} = ${tableOne}.${tableJoin}
+        AND ${table1Col4} = 1
+        AND DATE(${table1Col3}) < CURDATE() -1
         `;
 
         connection.query(dbQuery, function (err, res) {
@@ -113,6 +120,7 @@ var orm = {
             cb(res);
         });
     },
+   
 }
 
 module.exports = orm;
