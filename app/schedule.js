@@ -15,6 +15,7 @@ var yyyy = d.getFullYear();
 var curDate = `${yyyy}-${mm}-${dd}`;
 //format to update time stamp on SQL
 var upd = { last_fired: `${curDate}` }
+var upd = { last_called: `${curDate}` }
 var textTime = `* ${m} ${h} * * *`
 var callTime = `* ${m} ${cH} * * *`
 
@@ -26,7 +27,7 @@ cron.schedule('*/15 * * * * *', () => {
 
 
   console.log(`
-running ${h} ${curDate} ${textTime}
+running ${h} ${curDate} ${textTime} ${callTime}
   `)
   queryAlerts(textTime, upd)
 });
@@ -54,8 +55,9 @@ function queryAlerts(textTime, upd) {
       sendText(goalName)
       updateTable(upd, id)
 
-    // } else if (time = callTime) {
-    //   callUser(goalName)
+    } else if (time === callTime) {
+      callUser(phone, goalName)
+      updateTable(upc, id)
     } else {
       console.log("nothing to send")
     }
@@ -99,13 +101,13 @@ function updateTable(upd, id) {
 
 }
 
-// function callUser(phone, id){
+function callUser(phone, id){
 
-//   client.calls
-//   .create({
-//      url: `http://733a1d7d.ngrok.io/api/twiml${id}`,
-//      to: `+1${phone}`,
-//      from: '+13125846791'
-//    })
-//   .then(call => console.log(call.sid));
-// }
+  client.calls
+  .create({
+     url: `https://agile-wildwood-70962/api/twiml/${id}`,
+     to: `+1${phone}`,
+     from: '+13125846791'
+   })
+  .then(call => console.log(call.sid));
+}
