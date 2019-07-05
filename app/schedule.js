@@ -59,13 +59,8 @@ function queryAlerts(textTime, upd) {
     } else {
       console.log("nothing to send")
     }
-
-
-
-
-
-
-
+  })
+}
 
 
 
