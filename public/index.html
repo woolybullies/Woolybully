@@ -8,11 +8,11 @@
     <title>Wooly Bully</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Exo+2:700|Exo:900&display=swap"
         rel="stylesheet">
-
 
 
 
@@ -22,7 +22,6 @@
 
 
 <style>
-
     #logo {
         height: 64px;
         padding: 10px;
@@ -32,7 +31,8 @@
         font-family: 'Coda Caption', sans-serif;
     }
 
-    li {
+    li,
+    .card-title {
         font-family: 'Exo 2', sans-serif;
     }
 
@@ -54,8 +54,10 @@
     <nav class="blue-grey lighten-2" <div class="nav-wrapper">
         <img id="logo" src="assets/boxer-1294352.svg" /><a href="#!" class="brand-logo">WOOLY BULLY</a>
         <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="#">Log Out</a></li>
+
 
         </ul>
         </div>
@@ -83,11 +85,32 @@
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
-                                            <div class="input-field col s6">
+                                            <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                <label for="icon_prefix2">Add Task </label>
+                                                <textarea id="task" class="materialize-textarea"></textarea>
+                                                <label for="task">Add Task</label>
                                             </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="date" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="time" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                 </div>
                             </form>
                             </li>
@@ -115,11 +138,32 @@
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
-                                            <div class="input-field col s6">
+                                            <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                <label for="icon_prefix2">Add Task </label>
+                                                <textarea id="task" class="materialize-textarea"></textarea>
+                                                <label for="task">Add Task</label>
                                             </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                 </div>
                             </form>
                             </li>
@@ -151,11 +195,32 @@
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
-                                            <div class="input-field col s6">
+                                            <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                <label for="icon_prefix2">Add Task </label>
+                                                <textarea id="task" class="materialize-textarea"></textarea>
+                                                <label for="task">Add Task</label>
                                             </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                 </div>
                             </form>
                             </li>
@@ -185,11 +250,32 @@
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
-                                            <div class="input-field col s6">
+                                            <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                <label for="icon_prefix2">Add Task </label>
+                                                <textarea id="task" class="materialize-textarea"></textarea>
+                                                <label for="task">Add Task</label>
                                             </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                 </div>
                             </form>
                             </li>
@@ -223,11 +309,32 @@
                                     <div class="row">
                                         <ul class="list-group todo-list">
                                             <li class="list-group-item new-item">
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s12">
                                                     <i class="material-icons prefix">assignment_turned_in</i>
-                                                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                    <label for="icon_prefix2">Add Task </label>
+                                                    <textarea id="task" class="materialize-textarea"></textarea>
+                                                    <label for="task">Add Task</label>
                                                 </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">date_range</i>
+                                                    <input type="text" class="datepicker">
+                                                    <label for="date">Date</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">alarm</i>
+                                                    <input type="text" class="timepicker">
+                                                    <label for="time">Time</label>
+                                                </div>
+
+                                                <div class="row center">
+                                                    <div class="col s12">
+                                                        <button class="btn waves-effect blue-grey lighten-2 "
+                                                            type="submit" name="action">Get It Done!
+                                                        </button>
+                                                    </div>
+                                                </div>
+
                                     </div>
                                 </form>
                                 </li>
@@ -260,11 +367,32 @@
                                     <div class="row">
                                         <ul class="list-group todo-list">
                                             <li class="list-group-item new-item">
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s12">
                                                     <i class="material-icons prefix">assignment_turned_in</i>
-                                                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                                                    <label for="icon_prefix2">Add Task </label>
+                                                    <textarea id="task" class="materialize-textarea"></textarea>
+                                                    <label for="task">Add Task</label>
                                                 </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">date_range</i>
+                                                    <input type="text" class="datepicker">
+                                                    <label for="date">Date</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">alarm</i>
+                                                    <input type="text" class="timepicker">
+                                                    <label for="time">Time</label>
+                                                </div>
+
+                                                <div class="row center">
+                                                    <div class="col s12">
+                                                        <button class="btn waves-effect blue-grey lighten-2 "
+                                                            type="submit" name="action">Get It Done!
+                                                        </button>
+                                                    </div>
+                                                </div>
+
                                     </div>
                                 </form>
                                 </li>
@@ -277,6 +405,12 @@
         </div>
     </div>
 
+    <script src="js/view.js"></script> 
+
 </body>
+
+
+
+
 
 </html>

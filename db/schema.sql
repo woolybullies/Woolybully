@@ -45,11 +45,8 @@ CREATE TABLE goals(
   user_id INT NOT NULL,
   name VARCHAR(100)NOT NULL,
   category_id INT NOT NULL,
-  daily_occurance DATETIME NOT NULL,
-  importance INT(100)NOT NULL,
   -- military time
-  day_start DATETIME NOT NULL,
-  day_end DATETIME NOT NULL,
+  daily_occurance INT (2) NOT NULL,
   -- will allow for middle of the night wakeup calls
   allow_wake BOOLEAN NOT NULL,
   --tre false for active not active
@@ -60,7 +57,7 @@ CREATE TABLE goals(
 );
 
 CREATE TABLE  users(
-  user_id INT AUTO_INCREMENT NOT NULL,
+  user_id VARCHAR(100)NOT NULL,
   name VARCHAR(100)NOT NULL,
   email VARCHAR(100)NOT NULL,
   phone VARCHAR(15)NOT NULL

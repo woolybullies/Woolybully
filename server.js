@@ -5,7 +5,9 @@ const app = express();
 const port = process.env.PORT || 9000;
 const mySqlConnection = require('./config/config');
 
-mySqlConnection.connect();
+mySqlConnection.connect(function(){
+    require('./app/schedule')
+});
 
 
 app.use(express.static(__dirname + '/public')); // you should change this to be wherever your html files are
