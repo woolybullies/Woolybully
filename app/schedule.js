@@ -53,8 +53,8 @@ function queryAlerts(textTime, upd) {
       sendText(goalName)
       updateTable(upd, id)
 
-    } else if (time = callTime) {
-      callUser(goalName)
+    // } else if (time = callTime) {
+    //   callUser(goalName)
     } else {
       console.log("nothing to send")
     }
@@ -83,14 +83,14 @@ function sendText(goalName) {
 
   console.log(msg);
 
-  //send text via twillio  
-  // client.messages
-  //   .create({
-  //     body: `${msg}`,
-  //     from: '+13125846791',
-  //     to: `+1${phone}`
-  //   })
-  //   .then(message => console.log(message.sid));
+ // send text via twillio  
+  client.messages
+    .create({
+      body: `${msg}`,
+      from: '+13125846791',
+      to: `+1${phone}`
+    })
+    .then(message => console.log(message.sid));
 
 
   console.log(data)
@@ -107,13 +107,13 @@ function updateTable(upd, id) {
 
 }
 
-function callUser(phone, id){
+// function callUser(phone, id){
 
-  client.calls
-  .create({
-     url: `http://733a1d7d.ngrok.io/api/twiml${id}`,
-     to: `+1${phone}`,
-     from: '+13125846791'
-   })
-  .then(call => console.log(call.sid));
-}
+//   client.calls
+//   .create({
+//      url: `http://733a1d7d.ngrok.io/api/twiml${id}`,
+//      to: `+1${phone}`,
+//      from: '+13125846791'
+//    })
+//   .then(call => console.log(call.sid));
+// }
