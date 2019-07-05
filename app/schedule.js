@@ -105,7 +105,7 @@ function callUser(phone, id){
 
   client.calls
   .create({
-     url: `https://agile-wildwood-70962/api/twiml/${id}`,
+     url: `https://agile-wildwood-70962.herokuapp.com/${id}`,
      to: `+1${phone}`,
      from: '+13125846791'
    })
