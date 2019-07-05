@@ -6,7 +6,7 @@ const port = process.env.PORT || 9000;
 const mySqlConnection = require('./config/config');
 
 mySqlConnection.connect(function(){
-    require('./app/schedule')
+    // require('./app/schedule')
 });
 
 

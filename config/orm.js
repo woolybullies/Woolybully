@@ -120,6 +120,16 @@ var orm = {
             cb(res);
         });
     },
+    twiloGoals: function (table, id, cb){
+        var dbQuery = `SELECT name FROM ${table} WHERE ${id}`;
+        console.log(dbQuery)
+        connection.query(dbQuery, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
+    },
    
 }
 

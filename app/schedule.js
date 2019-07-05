@@ -4,7 +4,9 @@ var goal_config = require('../models/goal_config')
 var d = new Date();
 
 var h = d.getHours();
-var m = ("0" + d.getMinutes()).slice(-2)
+var cH = h - 2;
+var m = ("0" + d.getMinutes()).slice(-2);
+
 
 var dd = ("0" + d.getDate()).slice(-2)
 var mm = ("0" + (d.getMonth() + 1)).slice(-2)
@@ -13,7 +15,9 @@ var yyyy = d.getFullYear();
 var curDate = `${yyyy}-${mm}-${dd}`;
 //format to update time stamp on SQL
 var upd = { last_fired: `${curDate}` }
-var cTime = `* ${m} ${h} * * *`
+var textTime = `* ${m} ${h} * * *`
+var callTime = `* ${m} ${cH} * * *`
+
 
 
 //cron schedule to query for what users need to be reminded
@@ -22,14 +26,14 @@ cron.schedule('*/15 * * * * *', () => {
 
 
   console.log(`
-running ${h} ${curDate} ${cTime}
+running ${h} ${curDate} ${textTime}
   `)
-  queryAlerts(cTime, upd)
+  queryAlerts(textTime, upd)
 });
 
 //query mysql for alerts for today
 
-function queryAlerts(cTime, upd) {
+function queryAlerts(textTime, upd) {
   goal_config.allGoals(function (result) {
     // console.log(result)
 
@@ -43,12 +47,14 @@ function queryAlerts(cTime, upd) {
       console.log(`${phone} - ${id} - ${goalName} - ${time}`)
     }
     //if the time the user needs to be reminded matches the current time
-    if (time === cTime) {
+    if (time === textTime) {
       console.log("match", id)
 
       sendText(goalName)
       updateTable(upd, id)
 
+    } else if (time = callTime) {
+      callUser(goalName)
     } else {
       console.log("nothing to send")
     }
@@ -78,13 +84,13 @@ function sendText(goalName) {
   console.log(msg);
 
   //send text via twillio  
-  client.messages
-    .create({
-      body: `${msg}`,
-      from: '+13125846791',
-      to: `+1${phone}`
-    })
-    .then(message => console.log(message.sid));
+  // client.messages
+  //   .create({
+  //     body: `${msg}`,
+  //     from: '+13125846791',
+  //     to: `+1${phone}`
+  //   })
+  //   .then(message => console.log(message.sid));
 
 
   console.log(data)
@@ -101,3 +107,13 @@ function updateTable(upd, id) {
 
 }
 
+function callUser(phone, id){
+
+  client.calls
+  .create({
+     url: `http://733a1d7d.ngrok.io/api/twiml${id}`,
+     to: `+1${phone}`,
+     from: '+13125846791'
+   })
+  .then(call => console.log(call.sid));
+}

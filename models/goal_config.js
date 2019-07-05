@@ -32,6 +32,11 @@ var goal_config = {
             // console.log(res)
         });
     },
+   twilioGoals : function (id, cb) {
+        orm.twiloGoals("goals", "id =" + id,  function (res) {
+            cb(res);
+        });
+    },
    
     
 
