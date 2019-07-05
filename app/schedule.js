@@ -46,6 +46,7 @@ function queryAlerts(textTime, upd) {
       // console.log(time)
       console.log(`${phone} - ${id} - ${goalName} - ${time}`)
     }
+
     //if the time the user needs to be reminded matches the current time
     if (time === textTime) {
       console.log("match", id)
@@ -58,17 +59,8 @@ function queryAlerts(textTime, upd) {
     } else {
       console.log("nothing to send")
     }
-
-
-
-  });
-
+  })
 }
-
-
-
-
-
 
 
 
