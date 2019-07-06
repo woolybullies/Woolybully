@@ -2,6 +2,7 @@ var cron = require('node-cron');
 var goal_config = require('../models/goal_config')
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
+const twilioPhone = process.env.twilioPhone
 const client = require('twilio')(accountSid, authToken);
 
 
@@ -130,6 +131,7 @@ function callUser(phone, id) {
       url: `https://agile-wildwood-70962.herokuapp.com/api/twiml/${id}`,
       to: `+1${phone}`,
       from: '+13125846791'
+      from: `+1${twilioPhone}`
     })
     .then(call => console.log(call.sid));
 }
