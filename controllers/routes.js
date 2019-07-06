@@ -3,8 +3,8 @@ var express = require("express");
 var router = express.Router();
 
 var users = require("../models/users");
-var categories = require("../models/categories");
 var goal_config = require("../models/goal_config");
+
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
 //******* USER ROUTES **********
