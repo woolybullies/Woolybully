@@ -91,11 +91,11 @@ router.get('/api/twiml/:id', (req, res) => {
 
 });
 
-router.post('api/twiml/:id', (req, res) => {
+router.post('/api/twiml/:id', (req, res) => {
 
     console.log(req.params.id)
     goal_config.twilioGoals(req.params.id, function (data) {
-        
+
         const twiml = new VoiceResponse();
 
         twiml.say(`Don't forget, you need to ${data[0].name}`);
