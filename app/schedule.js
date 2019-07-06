@@ -49,7 +49,7 @@ function queryAlerts(textTime, texted) {
     console.table(result)
 
     //loop api response for data formatting to twilio API
-    // console.log(`Texts Phone -   ID  - Goal Name - Time`)
+    console.log(`Texts Phone -   ID  - Goal Name - Time`)
     for (i = 0; i < result.length; i++) {
       var time = result[i].daily_occurance
       var phone = result[i].phone
