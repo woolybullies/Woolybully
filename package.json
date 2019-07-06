@@ -1,7 +1,7 @@
 {
   "name": "Woolybully",
   "version": "1.0.0",
-  "description": "",
+  "description": "The \"Damn, You Live Like This?\" reminder app. Set up to-do lists and goals, and Wooly Bully will bully you into being the best version of yourself with timed reminders, phone calls, and public shaming. Be Better. Get Bullied. Wooly Bully.",
   "scripts": {
     "start": "nodemon server.js"
   },
@@ -23,5 +23,8 @@
     "passport-twitter": "^1.0.4",
     "twilio": "^3.33.0",
     "twitter": "^1.7.1"
-  }
+  },
+  "main": "server.js",
+  "keywords": [],
+  "author": ""
 }

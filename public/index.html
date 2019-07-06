@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Exo+2:700|Exo:900&display=swap"
         rel="stylesheet">
-
+      
 
 </head>
 
@@ -83,40 +83,30 @@
                         <br>
 
                         <div class="row">
-                            <form class="col s12" action="goalsLists.html">
-                                <div class="row">
-                                    <ul class="list-group todo-list">
-                                        <li class="list-group-item new-item">
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="task-cleaning" class="materialize-textarea"></textarea>
-                                                <label for="task-cleaning">Add Task</label>
-                                            </div>
-
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">date_range</i>
-                                                <input type="date" id="date-cleaning" class="datepicker">
-                                                <label for="date">Date</label>
-                                            </div>
-
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">alarm</i>
-                                                <input type="time" id="time-cleaning" class="timepicker">
-                                                <label for="time">Time</label>
-                                            </div>
-
-                                            <div class="row center">
-                                                <div class="col s12">
-                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
-                                                        name="action">Get It Done!
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                </div>
-                            </form>
-                            </li>
-                            </ul>
+                                <form action="goalsLists.html">
+                                        <div class="form-group">
+                                            <label for="name"></label>
+                                            <i class="material-icons prefix">assignment_turned_in</i>
+                                            <input type="text" class="form-control" id="goal" aria-describedby="emailHelp"
+                                                placeholder="Enter your Goal here">
+                                            <small id="emailHelp" class="form-text text-muted"></small>
+                                        </div>
+                                        <br>
+            
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1"></label>
+                                            <i class="material-icons prefix">alarm</i>
+                                            <input type="text" class="form-control" id="goalTime" aria-describedby="emailHelp"
+                                                placeholder="Enter when you want your goal completed">
+                                        </div>
+            
+                                        <br>
+                                        <button type="submit" class="btn btn-primary" id="goal_submit">Submit</button>
+            
+                                        <button type = "submit"  class="btn btn-primary" id="goal_delete">Delete</button>
+            
+                                    </form>
+            
                         </div>
                     </div>
                 </div>
