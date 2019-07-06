@@ -39,7 +39,9 @@ $(document).ready(function(){
             },
             dataType: "JSON"
         })
+        location.href = "goalsLists.html";
     });
+
 
     
 
