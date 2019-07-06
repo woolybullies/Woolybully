@@ -103,7 +103,7 @@ function sendText(goalName, phone) {
   client.messages
     .create({
       body: `${msg}`,
-      from: '+13125846791',
+      from: `+1${twilioPhone}`,
       to: `+1${phone}`
     })
     .then(message => console.log(message.sid));
@@ -130,7 +130,6 @@ function callUser(phone, id) {
     .create({
       url: `https://agile-wildwood-70962.herokuapp.com/api/twiml/${id}`,
       to: `+1${phone}`,
-      from: '+13125846791'
       from: `+1${twilioPhone}`
     })
     .then(call => console.log(call.sid));
