@@ -29,7 +29,7 @@ cron.schedule('*/15 * * * * *', () => {
   //set the current date for posting to sql  
 
   console.log(`
-running ${h} | ${curDate} | ${textTime} | ${callTime}
+running ${h}:${m} | ${curDate} | ${textTime} | ${callTime}
   `)
   queryAlerts(textTime, texted)
   queryCalls(callTime, called)
@@ -68,7 +68,7 @@ function queryAlerts(textTime) {
   })
 }
 
-function queryCalls(textTime) {
+function queryCalls(callTime) {
   goal_config.callGoals(function (result) {
     // console.log(result)
 
