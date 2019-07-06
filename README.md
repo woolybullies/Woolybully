@@ -51,9 +51,14 @@ Setup your local environment
 
 ```
  APP_ENV=local
+ 
+# DB Config (following this pattern) 
+JAWSDB_URL= mysql://username:password@hostname:port/database_name
 
-DB_URL=mysql://qvi25n47mbm3c8da:ffx51olsemcudjmv@v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/w5rf5aqxit0qej3v
-
+# TWILIO Config
+accountSid= Account SID goes here
+authToken= Authtoken goes here
+twilioPhone= 1231231234
 ```
 
 Directory Structure using MVC design pattern
