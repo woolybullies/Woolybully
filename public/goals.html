@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wooly Bully</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Exo+2:700|Exo:900&display=swap"
+        rel="stylesheet">
+      
+
+</head>
+
+
+
+<style>
+
+    body {
+        background-color: #eceff1;
+
+    }
+    #logo {
+        height: 64px;
+        padding: 10px;
+    }
+
+    .brand-logo {
+        font-family: 'Coda Caption', sans-serif;
+    }
+
+    li,
+    .card-title {
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    .card {
+        width: 30rem;
+    }
+
+    .card .card-image img {
+        display: block;
+        border-radius: 2px 2px 0 0;
+        position: relative;
+        padding: 30px;
+        width: 100%;
+    }
+
+    .modal {
+        width: auto;
+    }
+</style>
+
+<body>
+
+    <nav class="blue-grey lighten-2" <div class="nav-wrapper">
+        <img id="logo" src="assets/boxer-1294352.svg" /><a href="#!" class="brand-logo">WOOLY BULLY</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Log Out</a></li>
+
+
+        </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l6">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/brush.svg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 center">Clean It Up!<i
+                                class="material-icons right">add_circle</i></span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4 center">Clean It Up!<i
+                                class="material-icons right">close</i></span>
+                        <br>
+
+                        <div class="row">
+                                <form>
+                                        <div class="form-group">
+                                            <label for="name"></label>
+                                            <i class="material-icons prefix">assignment_turned_in</i>
+                                            <input type="text" class="form-control" id="goal" aria-describedby="emailHelp"
+                                                placeholder="Enter your Goal here">
+                                            <small id="emailHelp" class="form-text text-muted"></small>
+                                        </div>
+                                        <br>
+            
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1"></label>
+                                            <i class="material-icons prefix">alarm</i>
+                                            <input type="text" class="form-control" id="goalTime" aria-describedby="emailHelp"
+                                                placeholder="Enter when you want your goal completed">
+                                        </div>
+            
+                                        <br>
+                                        <button type="submit" class="btn btn-primary" id="goal_submit">Submit</button>
+            
+                                      
+            
+                                    </form>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l6">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/muscle.svg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 center">Get Off The Couch!<i
+                                class="material-icons right">add_circle</i></span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4 center">Get Off The Couch!<i
+                                class="material-icons right">close</i></span>
+                        <br>
+                        <div class="row">
+                                <form class="col s12" action="goalsLists.html">
+                                <div class="row">
+                                    <ul class="list-group todo-list">
+                                        <li class="list-group-item new-item">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">assignment_turned_in</i>
+                                                <textarea id="task-fitness" class="materialize-textarea"></textarea>
+                                                <label for="task-fitness">Add Task</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" id="date-fitness" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" id="time-fitness" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                </div>
+                            </form>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l6">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/healthy-food.svg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 center">Eat Your Veggies!<i
+                                class="material-icons right">add_circle</i></span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4 center">Eat Your Veggies!<i
+                                class="material-icons right">close</i></span>
+                        <br>
+
+                        <div class="row">
+                                <form class="col s12" action="goalsLists.html">
+                                <div class="row">
+                                    <ul class="list-group todo-list">
+                                        <li class="list-group-item new-item">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">assignment_turned_in</i>
+                                                <textarea id="task-nutrition" class="materialize-textarea"></textarea>
+                                                <label for="task-nutrition">Add Task</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" id="date-nutrition" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" id="time-nutrition" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                </div>
+                            </form>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l6">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/desk.svg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 center">Get That Work Done!<i
+                                class="material-icons right">add_circle</i></span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4 center">Get That Work Done!<i
+                                class="material-icons right">close</i></span>
+                        <br>
+
+                        <div class="row">
+                                <form class="col s12" action="goalsLists.html">
+                                <div class="row">
+                                    <ul class="list-group todo-list">
+                                        <li class="list-group-item new-item">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">assignment_turned_in</i>
+                                                <textarea id="task-work" class="materialize-textarea"></textarea>
+                                                <label for="task-work">Add Task</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">date_range</i>
+                                                <input type="text" id="date-work" class="datepicker">
+                                                <label for="date">Date</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">alarm</i>
+                                                <input type="text" id="time-work" class="timepicker">
+                                                <label for="time">Time</label>
+                                            </div>
+
+                                            <div class="row center">
+                                                <div class="col s12">
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                        name="action">Get It Done!
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                </div>
+                            </form>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l6">
+
+                <div class="col s12 l6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="assets/piggy-bank.svg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4 center">Don't Be Broke!<i
+                                    class="material-icons right">add_circle</i></span>
+
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4 center">Don't Be Broke!<i
+                                    class="material-icons right">close</i></span>
+                            <br>
+
+                            <div class="row">
+                                    <form class="col s12" action="goalsLists.html">
+                                    <div class="row">
+                                        <ul class="list-group todo-list">
+                                            <li class="list-group-item new-item">
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">assignment_turned_in</i>
+                                                    <textarea id="task-finance" class="materialize-textarea"></textarea>
+                                                    <label for="task-finance">Add Task</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">date_range</i>
+                                                    <input type="text" id="date-finance" class="datepicker">
+                                                    <label for="date">Date</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">alarm</i>
+                                                    <input type="text" id="time-finance" class="timepicker">
+                                                    <label for="time">Time</label>
+                                                </div>
+
+                                                <div class="row center">
+                                                    <div class="col s12">
+                                                        <button class="btn waves-effect blue-grey lighten-2 "
+                                                            type="submit" name="action">Get It Done!
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                    </div>
+                                </form>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m12 l6">
+
+                <div class="col s12 l6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="assets/user.svg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4 center">Fix Yourself!<i
+                                    class="material-icons right">add_circle</i></span>
+
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4 center">Fix Yourself!<i
+                                    class="material-icons right">close</i></span>
+                            <br>
+
+                            <div class="row">
+                                    <form class="col s12" action="goalsLists.html">
+                                    <div class="row">
+                                        <ul class="list-group todo-list">
+                                            <li class="list-group-item new-item">
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">assignment_turned_in</i>
+                                                    <textarea id="task-SC" class="materialize-textarea"></textarea>
+                                                    <label for="task-SC">Add Task</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">date_range</i>
+                                                    <input type="text" id="date-SC" class="datepicker">
+                                                    <label for="date">Date</label>
+                                                </div>
+
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">alarm</i>
+                                                    <input type="text" id="time-SC" class="timepicker">
+                                                    <label for="time">Time</label>
+                                                </div>
+
+                                                <div class="row center">
+                                                    <div class="col s12">
+                                                        <button class="btn waves-effect blue-grey lighten-2 "
+                                                            type="submit" name="action">Get It Done!
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                    </div>
+                                </form>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/view.js"></script> 
+
+</body>
+
+
+
+
+
+</html>
