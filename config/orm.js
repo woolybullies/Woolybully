@@ -108,11 +108,12 @@ var orm = {
 
 //TWILIO GOALS FOR XML POPULATION TO PLACE CALLS
     twiloGoals: function (table, id, cb){
-        var dbQuery = `SELECT name FROM ${table} WHERE ${id}`;
+        var dbQuery = `SELECT EXISTS (SELECT name FROM ${table} WHERE ${id})`;
         console.log(dbQuery)
         connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;
+                console.log("error")
             }
             cb(res);
         });
