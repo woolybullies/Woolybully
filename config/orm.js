@@ -18,6 +18,7 @@ function objToSql(obj) {
 
 var orm = {
 
+//ADD NEW
     insertOne: function (table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " +
             table +
@@ -39,27 +40,8 @@ var orm = {
             console.log(table);
         });
     },
-    create: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
 
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
-
-        console.log(queryString);
-
-        connection.query(queryString, vals, function (err, result) {
-            if (err) {
-                throw err;
-            }
-
-            cb(result);
-        });
-    },
-
+//GET ALL
     all: function (table, cb) {
         var dbQuery = "SELECT * FROM " + table + ";";
 
@@ -71,6 +53,7 @@ var orm = {
         });
     },
 
+//UPDATE
     updateOne: function (table, objectColVals, condition, cb) {
 
         console.log(`
@@ -91,7 +74,7 @@ var orm = {
             cb(res);
         });
     },
-
+//DELETE
     deleteOne: function (table, condition, cb) {
         var dbQuery = "DELETE FROM " +
             table +
@@ -105,6 +88,8 @@ var orm = {
             cb(res);
         });
     },
+
+//ALL GOALS FORMAT FOR SCHEDULE
     allGoals: function (tableOne, tableTwo, table1Col1, table1Col2, table2Col1, table1Col3, table1Col4, table1col5, tableJoin, cb) {
         var dbQuery = `SELECT ${tableOne}.${table1col5} , ${tableOne}.${table1Col1} , ${tableOne}.${table1Col2} , ${tableTwo}.${table2Col1} , ${tableOne}.${table1Col3}, ${tableOne}.${table1Col4}
         FROM ${tableOne}, ${tableTwo}
@@ -120,6 +105,8 @@ var orm = {
             cb(res);
         });
     },
+
+//TWILIO GOALS FOR XML POPULATION TO PLACE CALLS
     twiloGoals: function (table, id, cb){
         var dbQuery = `SELECT name FROM ${table} WHERE ${id}`;
         console.log(dbQuery)
@@ -134,3 +121,26 @@ var orm = {
 }
 
 module.exports = orm;
+
+
+//NOT IN USE
+// create: function (table, cols, vals, cb) {
+//     var queryString = "INSERT INTO " + table;
+
+//     queryString += " (";
+//     queryString += cols.toString();
+//     queryString += ") ";
+//     queryString += "VALUES (";
+//     queryString += printQuestionMarks(vals.length);
+//     queryString += ") ";
+
+//     console.log(queryString);
+
+//     connection.query(queryString, vals, function (err, result) {
+//         if (err) {
+//             throw err;
+//         }
+
+//         cb(result);
+//     });
+// },
