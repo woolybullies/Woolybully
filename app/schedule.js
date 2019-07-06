@@ -4,8 +4,13 @@ const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
 const client = require('twilio')(accountSid, authToken);
 
-var d = new Date();
 
+
+
+//cron schedule to query for what users need to be reminded
+cron.schedule('*/15 * * * * *', () => {
+  //set the current date for posting to sql  
+var d = new Date();
 var h = d.getHours();
 var cH = h + 2;
 var m = ("0" + d.getMinutes()).slice(-2);
@@ -23,11 +28,6 @@ var textTime = `* ${m} ${h} * * *`
 var callTime = `* ${m} ${cH} * * *`
 
 
-
-//cron schedule to query for what users need to be reminded
-cron.schedule('*/15 * * * * *', () => {
-  //set the current date for posting to sql  
-
   console.log(`
 running ${h}:${m} | ${curDate} | ${textTime} | ${callTime}
   `)
@@ -37,11 +37,12 @@ running ${h}:${m} | ${curDate} | ${textTime} | ${callTime}
 
 //query mysql for alerts for today
 
-function queryAlerts(textTime) {
+function queryAlerts(textTime, texted) {
   goal_config.allGoals(function (result) {
     // console.log(result)
 
     //loop api response for data formatting to twilio API
+    console.log(`Texts Phone -   ID  - Goal Name - Time`)
     for (i = 0; i < result.length; i++) {
       var time = result[i].daily_occurance
       var phone = result[i].phone
@@ -57,21 +58,16 @@ function queryAlerts(textTime) {
 
       sendText(goalName, phone)
       updateTable(texted, id)
-
-    } else if (time === callTime) {
-      console.log("call match", id)
-      callUser(phone, id)
-      updateTable(called, id)
     } else {
-      console.log("nothing to send")
+      console.log("No texts to Send")
     }
   })
 }
 
-function queryCalls(callTime) {
+function queryCalls(callTime, called) {
   goal_config.callGoals(function (result) {
     // console.log(result)
-
+    console.log(`CALLS Phone -   ID  - Goal Name - Time`)
     //loop api response for data formatting to twilio API
     for (i = 0; i < result.length; i++) {
       var time = result[i].daily_occurance
@@ -88,7 +84,7 @@ function queryCalls(callTime) {
       callUser(phone, id)
       updateTable(called, id)
     } else {
-      console.log("nothing to send")
+      console.log("No Calls to send")
     }
   })
 }
