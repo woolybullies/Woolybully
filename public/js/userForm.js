@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $("#submit").click(function (event) {
         event.preventDefault()
-
+        
         console.log("Clicked")
 
         let name = $("#formName").val();
@@ -22,6 +22,7 @@ $(document).ready(function () {
             },
             dataType: "JSON"
         })
-        
+        window.location.replace("goals.html")
     });
+   
 });
