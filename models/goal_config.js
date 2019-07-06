@@ -32,6 +32,12 @@ var goal_config = {
             // console.log(res)
         });
     },
+    callGoals: function (cb) {
+        orm.allGoals("goals", "users", "name", "daily_occurance", "phone", "last_called", "status", "id", "user_id", function (res) {
+            cb(res);
+            // console.log(res)
+        });
+    },
    twilioGoals : function (id, cb) {
         orm.twiloGoals("goals", "id =" + id,  function (res) {
             cb(res);
