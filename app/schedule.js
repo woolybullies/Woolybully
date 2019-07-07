@@ -33,10 +33,17 @@ var callTime = `* ${m} ${cH} * * *`
 //format to update time stamp on SQL
 var texted = { last_fired: `${curDate}` }
 var called = { last_called: `${curDate}` }
-
+// var monitor = {
+// Current_Time: `[${h}:${m}`,
+// Current_Date :  curDate,
+// Texting_Time: textTime,
+// Calling_Time: callTime
+// ]}
   console.log(`
-running ${h}:${m} | ${curDate} | ${textTime} | ${callTime}
+|  Current Time   |Current Date| Texting Time| Calling Time|
+| running ${h}:${m} | ${curDate} | ${textTime} | ${callTime} |
   `)
+  // console.table(monitor)
   queryAlerts(textTime, texted)
   queryCalls(callTime, called)
 });
@@ -96,7 +103,7 @@ function queryCalls(callTime, called) {
       // console.log("No Calls to send")
     }
   }
-  })
+  });
 }
 
 function sendText(goalName, phone) {
