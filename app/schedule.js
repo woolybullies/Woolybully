@@ -33,10 +33,17 @@ var callTime = `* ${m} ${cH} * * *`
 //format to update time stamp on SQL
 var texted = { last_fired: `${curDate}` }
 var called = { last_called: `${curDate}` }
-
+// var monitor = {
+// Current_Time: `[${h}:${m}`,
+// Current_Date :  curDate,
+// Texting_Time: textTime,
+// Calling_Time: callTime
+// ]}
   console.log(`
-running ${h}:${m} | ${curDate} | ${textTime} | ${callTime}
+|  Current Time   |Current Date| Texting Time| Calling Time|
+| running ${h}:${m} | ${curDate} | ${textTime} | ${callTime} |
   `)
+  // console.table(monitor)
   queryAlerts(textTime, texted)
   queryCalls(callTime, called)
 });
@@ -62,9 +69,9 @@ function queryAlerts(textTime, texted) {
     //if the time the user needs to be reminded matches the current time
     if (time == textTime) {
       console.log("text match", id)
-
-      sendText(goalName, phone)
       updateTable(texted, id)
+      sendText(goalName, phone)
+      
     } else {
       // console.log("No texts to Send")
     }
@@ -82,7 +89,7 @@ function queryCalls(callTime, called) {
       var time = result[i].daily_occurance
       var phone = result[i].phone
       var id = result[i].id
-      var goalName = result[i].name
+
       // console.log(time)
       // console.log(`Calls ${phone} - ${id} - ${goalName} - ${time}`)
    
@@ -90,13 +97,13 @@ function queryCalls(callTime, called) {
     //if the time matches 2 hours prior to the current time, send the call
     if (time === callTime) {
       console.log("call match", id)
-      callUser(phone, id)
       updateTable(called, id)
+      callUser(phone, id)
     } else {
       // console.log("No Calls to send")
     }
   }
-  })
+  });
 }
 
 function sendText(goalName, phone) {

@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     $("#goal_submit").click(function (event) {
         event.preventDefault();
 
