@@ -56,6 +56,25 @@ var orm = {
         });
     },
 
+// USER SELECT
+userSelect: function (table, column, user_id, cb) {
+    var dbQuery = "SELECT * FROM " + 
+    table + 
+    " WHERE " + 
+    column +
+    "=" +
+    user_id +
+    ";"
+
+    connection.query(dbQuery, function (err, res) {
+        if (err) {
+            throw err;
+        }
+        cb(res);
+    });
+},
+
+
 //UPDATE
     updateOne: function (table, objectColVals, condition, cb) {
 

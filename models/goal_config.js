@@ -9,6 +9,12 @@ var goal_config = {
         });
     },
 
+    selectUser: function (user_id, cb) {
+        orm.userSelect("goals", "user_id", user_id , function (res) {
+            cb(res);
+        });
+    },
+
     insertOne: function (user_id, name, category_id, daily_occurance, allow_wake, status,cb) {
 
         orm.insertOne("goals", "user_id, name, category_id, daily_occurance, allow_wake, status", "'" +  user_id + "','" + name + "','" + category_id + "','" + daily_occurance + "','" + allow_wake + "','" + status + "'",  function (res) {

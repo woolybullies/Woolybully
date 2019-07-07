@@ -18,10 +18,9 @@ function categoryClick(categoryId){
 
     console.log(adjTime);
 
-    // add to end of URL + getCookie("userId"),
     $.ajax({
         type: "POST",
-        url: "/api/goals" ,
+        url: "/api/goals/" + getCookie("userId") ,
         data: { "name": name, "daily_occurance": daily_occurance, "category_id": categoryId},
 
         success: function (data, textStatus, jQxhr) {

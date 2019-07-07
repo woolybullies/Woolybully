@@ -45,21 +45,21 @@ router.delete("/api/users/:userId", function (req, res) {
 //ADD GOAL
 router.post("/api/goals/:user_id", function (req, res) {
     console.log(req.body)
-    goal_config.insertOne(req.params.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status, function (data) {
+    goal_config.insertOne(req.params.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake || 0 , req.body.status || 0 , function (data) {
         res.json(data);
     });
   
 });
 
 
-router.get("/api/goals", function (request, res) {
+router.get("/api/goals", function (req, res) {
     goal_config.all(function (data) {
         res.json(data);
     });
 });
 
-router.get("/api/goals/:userId", function (request, res) {
-    goal_config.all(function (data) {
+router.get("/api/goals/:userId", function (req, res) {
+    goal_config.selectUser(req.params.userId, function (data) {
         res.json(data);
     });
 });

@@ -19,7 +19,6 @@ $(document).ready(function () {
                 window.location.replace("goals.html")
             },
             error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
             },
             dataType: "JSON"
         })
