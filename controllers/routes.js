@@ -1,15 +1,21 @@
 var express = require("express");
 
 var router = express.Router();
-
+var path = require("path");
 var users = require("../models/users");
 var goal_config = require("../models/goal_config");
 
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
 //******* USER ROUTES **********
+router.get("/goalcreate/:user_id", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/goals.html"));
 
-
+  });
+router.post("/goalcreate/:user_id", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/goals.html"));
+  });
+  
 //CREATE User
 router.post("/api/users", function (req, res) {
     console.log(req.body)
@@ -37,9 +43,9 @@ router.delete("/api/users/:userId", function (req, res) {
 //******* GOAL ROUTES **********
 
 //ADD GOAL
-router.post("/api/goals", function (req, res) {
+router.post("/api/goals/:user_id", function (req, res) {
     console.log(req.body)
-    goal_config.insertOne(req.body.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status, function (data) {
+    goal_config.insertOne(req.params.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status, function (data) {
         res.json(data);
     });
   
