@@ -26,5 +26,6 @@
   },
   "main": "server.js",
   "keywords": [],
-  "author": ""
+  "author": "",
+  "devDependencies": {}
 }
