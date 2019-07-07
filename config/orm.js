@@ -119,8 +119,8 @@ var orm = {
     },
 
 //TWILIO GOALS FOR XML POPULATION TO PLACE CALLS
-    twiloGoals: function (table, id, cb){
-        var dbQuery = `SELECT EXISTS (SELECT name FROM ${table} WHERE ${id})`;
+    twiloGoals: function (table, id, cb){ 
+        var dbQuery = `SELECT name FROM ${table} WHERE ${id}`;
         console.log(dbQuery)
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -128,11 +128,12 @@ var orm = {
                 console.log("error")
             }
             cb(res);
+            console.log(res)
         });
     },
    
 }
-
+// `SELECT EXISTS (SELECT name FROM ${table} WHERE ${id})`;
 module.exports = orm;
 
 
