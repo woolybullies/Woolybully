@@ -13,18 +13,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Exo+2:700|Exo:900&display=swap"
         rel="stylesheet">
-      
+
 
 </head>
 
 
 
 <style>
-
     body {
         background-color: #eceff1;
 
     }
+
     #logo {
         height: 64px;
         padding: 10px;
@@ -88,30 +88,30 @@
                         <br>
 
                         <div class="row">
-                                <form>
-                                        <div class="form-group">
-                                            <label for="name"></label>
-                                            <i class="material-icons prefix">assignment_turned_in</i>
-                                            <input type="text" class="form-control" id="goal" aria-describedby="emailHelp"
-                                                placeholder="Enter your Goal here">
-                                            <small id="emailHelp" class="form-text text-muted"></small>
-                                        </div>
-                                        <br>
-            
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1"></label>
-                                            <i class="material-icons prefix">alarm</i>
-                                            <input type="text" class="form-control" id="goalTime" aria-describedby="emailHelp"
-                                                placeholder="Enter when you want your goal completed">
-                                        </div>
-            
-                                        <br>
-                                        <button type="submit" class="btn btn-primary" id="goal_submit">Submit</button>
-            
-                                      
-            
-                                    </form>
-            
+                            <form>
+                                <div class="form-group">
+                                    <label for="name"></label>
+                                    <i class="material-icons prefix">assignment_turned_in</i>
+                                    <input type="text" class="form-control" id="clean" aria-describedby="emailHelp"
+                                        placeholder="Enter your Goal here">
+                                    <small id="emailHelp" class="form-text text-muted"></small>
+                                </div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"></label>
+                                    <i class="material-icons prefix">alarm</i>
+                                    <input type="text" class="form-control" id="cleantime" aria-describedby="emailHelp"
+                                        placeholder="Enter when you want your goal completed">
+                                </div>
+
+                                <br>
+                                <button type="button" class="btn btn-primary" id="" onClick = "categoryClick(1); return false;" >Submit</button>
+
+
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -131,13 +131,13 @@
                                 class="material-icons right">close</i></span>
                         <br>
                         <div class="row">
-                                <form class="col s12" action="goalsLists.html">
+                            <form class="col s12" action="goalsLists.html">
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="task-fitness" class="materialize-textarea"></textarea>
+                                                <textarea id="fitness" class="materialize-textarea"></textarea>
                                                 <label for="task-fitness">Add Task</label>
                                             </div>
 
@@ -149,13 +149,14 @@
 
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">alarm</i>
-                                                <input type="text" id="time-fitness" class="timepicker">
+                                                <input type="text" id="fitnesstime" class="timepicker">
                                                 <label for="time">Time</label>
                                             </div>
 
                                             <div class="row center">
                                                 <div class="col s12">
-                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="button" 
+                                                    id= "" onClick = "categoryClick(2); return false;"
                                                         name="action">Get It Done!
                                                     </button>
                                                 </div>
@@ -188,13 +189,13 @@
                         <br>
 
                         <div class="row">
-                                <form class="col s12" action="goalsLists.html">
+                            <form class="col s12" action="goalsLists.html">
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="task-nutrition" class="materialize-textarea"></textarea>
+                                                <textarea id="nutrition" class="materialize-textarea"></textarea>
                                                 <label for="task-nutrition">Add Task</label>
                                             </div>
 
@@ -206,13 +207,14 @@
 
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">alarm</i>
-                                                <input type="text" id="time-nutrition" class="timepicker">
+                                                <input type="text" id="nutritiontime" class="timepicker">
                                                 <label for="time">Time</label>
                                             </div>
 
                                             <div class="row center">
                                                 <div class="col s12">
-                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="button"
+                                                    onClick = "categoryClick(3); return false;"
                                                         name="action">Get It Done!
                                                     </button>
                                                 </div>
@@ -243,13 +245,13 @@
                         <br>
 
                         <div class="row">
-                                <form class="col s12" action="goalsLists.html">
+                            <form class="col s12" action="goalsLists.html">
                                 <div class="row">
                                     <ul class="list-group todo-list">
                                         <li class="list-group-item new-item">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">assignment_turned_in</i>
-                                                <textarea id="task-work" class="materialize-textarea"></textarea>
+                                                <textarea id="work" class="materialize-textarea"></textarea>
                                                 <label for="task-work">Add Task</label>
                                             </div>
 
@@ -261,13 +263,14 @@
 
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">alarm</i>
-                                                <input type="text" id="time-work" class="timepicker">
+                                                <input type="text" id="worktime" class="timepicker">
                                                 <label for="time">Time</label>
                                             </div>
 
                                             <div class="row center">
                                                 <div class="col s12">
-                                                    <button class="btn waves-effect blue-grey lighten-2 " type="submit"
+                                                    <button class="btn waves-effect blue-grey lighten-2 " type="button"
+                                                    onClick = "categoryClick(4); return false;"
                                                         name="action">Get It Done!
                                                     </button>
                                                 </div>
@@ -302,13 +305,13 @@
                             <br>
 
                             <div class="row">
-                                    <form class="col s12" action="goalsLists.html">
+                                <form class="col s12" action="goalsLists.html">
                                     <div class="row">
                                         <ul class="list-group todo-list">
                                             <li class="list-group-item new-item">
                                                 <div class="input-field col s12">
                                                     <i class="material-icons prefix">assignment_turned_in</i>
-                                                    <textarea id="task-finance" class="materialize-textarea"></textarea>
+                                                    <textarea id="finance" class="materialize-textarea"></textarea>
                                                     <label for="task-finance">Add Task</label>
                                                 </div>
 
@@ -320,14 +323,15 @@
 
                                                 <div class="input-field col s12">
                                                     <i class="material-icons prefix">alarm</i>
-                                                    <input type="text" id="time-finance" class="timepicker">
+                                                    <input type="text" id="financetime" class="timepicker">
                                                     <label for="time">Time</label>
                                                 </div>
 
                                                 <div class="row center">
                                                     <div class="col s12">
                                                         <button class="btn waves-effect blue-grey lighten-2 "
-                                                            type="submit" name="action">Get It Done!
+                                                            type="button" 
+                                                            onClick = "categoryClick(5); return false;"name="action">Get It Done!
                                                         </button>
                                                     </div>
                                                 </div>
@@ -360,13 +364,13 @@
                             <br>
 
                             <div class="row">
-                                    <form class="col s12" action="goalsLists.html">
+                                <form class="col s12" action="goalsLists.html">
                                     <div class="row">
                                         <ul class="list-group todo-list">
                                             <li class="list-group-item new-item">
                                                 <div class="input-field col s12">
                                                     <i class="material-icons prefix">assignment_turned_in</i>
-                                                    <textarea id="task-SC" class="materialize-textarea"></textarea>
+                                                    <textarea id="self_care" class="materialize-textarea"></textarea>
                                                     <label for="task-SC">Add Task</label>
                                                 </div>
 
@@ -378,14 +382,15 @@
 
                                                 <div class="input-field col s12">
                                                     <i class="material-icons prefix">alarm</i>
-                                                    <input type="text" id="time-SC" class="timepicker">
+                                                    <input type="text" id="self_caretime" class="timepicker">
                                                     <label for="time">Time</label>
                                                 </div>
 
                                                 <div class="row center">
                                                     <div class="col s12">
                                                         <button class="btn waves-effect blue-grey lighten-2 "
-                                                            type="submit" name="action">Get It Done!
+                                                            type="button" 
+                                                            onClick = "categoryClick(6); return false;"name="action">Get It Done!
                                                         </button>
                                                     </div>
                                                 </div>
@@ -402,7 +407,7 @@
         </div>
     </div>
 
-    <script src="js/view.js"></script> 
+    <script src="js/view.js"></script>
 
 </body>
 

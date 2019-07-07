@@ -48,7 +48,7 @@ var orm = {
             // {
             //     throw err;
             // }
-            // cb(res);
+            cb(res);
             // console.log(table);
         });
     },

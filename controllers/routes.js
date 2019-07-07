@@ -40,10 +40,16 @@ router.delete("/api/users/:userId", function (req, res) {
 router.post("/api/goals", function (req, res) {
     console.log(req.body)
     goal_config.insertOne(req.body.user_id, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake, req.body.status, function (data) {
-       
         res.json(data);
     });
   
+});
+
+
+router.get("/api/goals", function (request, res) {
+    goal_config.all(function (data) {
+        res.json(data);
+    });
 });
 
 //UPDATE GOAL
@@ -86,11 +92,6 @@ router.post('/api/twiml/:id', (req, res) => {
 
 
 
-// router.get("/api/users", function (request, res) {
-//     users.all(function (data) {
-//         res.json(data);
-//     });
-// });
 
 // //categories routes go here 
 
