@@ -41,16 +41,6 @@ $(document).ready(function () {
 
 
                 }
-                // for loop through goals
-                // var newRow = $("<tr>").append(
-                //     $("<td>").text(data.insertId),
-                //     $("<td>").text(name),
-                //     $("<td>").text(daily_occurance),
-                //);
-                //if data[i]catergory id = 1 
-                //append to #clean
-                //else if data[i] category id = 2
-                //append to #fitness
             },
 
             error: function (errorThrown) {
@@ -60,6 +50,8 @@ $(document).ready(function () {
     }
     goalGetter();
 
+
+    // Below is Not functional yet **
 
     $("#goal_delete").click(function (event) {
         event.preventDefault();
