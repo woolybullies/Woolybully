@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "/api/goals",
+            url: "/api/goals/" + getCookie("userId"),
 
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {

@@ -38,6 +38,8 @@ var goal_config = {
             // console.log(res)
         });
     },
+    //find goals by userid
+
    twilioGoals : function (id, cb) {
         orm.twiloGoals("goals", "id =" + id,  function (res) {
             cb(res);

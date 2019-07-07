@@ -33,23 +33,14 @@ var orm = {
         console.log(dbQuery);
 
         connection.query(dbQuery, function (err, res) {
-            if (err) 
 
-            if(err.code == 'ER_DUP_ENTRY' || err.errno == 1062)
-            {
-                console.log('Alert duplicate entry')
-            }
-            else{
-               console.log('Other error in the query')
-            } else{
+            if(err){
+                console.log('Alert duplicate entry', err)
+            } else {
              console.log('No error in the query')
-          }
-            
-            // {
-            //     throw err;
-            // }
+            }
+
             cb(res);
-            // console.log(table);
         });
     },
 

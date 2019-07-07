@@ -20,9 +20,9 @@ router.post("/goalcreate/:user_id", function(req, res) {
 router.post("/api/users", function (req, res) {
     console.log(req.body)
     users.insertOne(req.body.name, req.body.email, req.body.phone, function (data) {
-        // res.json(data);
+        console.log(data);
+        res.json(data);
     });
-    res.json({ test: true });
 });
 
 //UPDATE USER
@@ -53,6 +53,12 @@ router.post("/api/goals/:user_id", function (req, res) {
 
 
 router.get("/api/goals", function (request, res) {
+    goal_config.all(function (data) {
+        res.json(data);
+    });
+});
+
+router.get("/api/goals/:userId", function (request, res) {
     goal_config.all(function (data) {
         res.json(data);
     });
