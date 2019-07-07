@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 let adjTime = ""
 function categoryClick(categoryId){
-
+    
     let name = $((categoryElement(categoryId))).val();
     let time = $((categoryElement(categoryId)) + "time").val();
     ConvertTimeformat(time)

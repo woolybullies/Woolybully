@@ -43,7 +43,7 @@ var goal_config = {
             cb(res);
         });
     },
-   
+    
     
 
 }
