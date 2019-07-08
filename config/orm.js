@@ -43,7 +43,7 @@ var orm = {
             }
 
             cb(res);
-            console.log(res)
+            // console.log(res)
         });
     },
 
@@ -68,7 +68,7 @@ userSelect: function (table, column, user_id, cb) {
     " = " +
     "'"+user_id+"'" +
     ";"
-    console.log(dbQuery)
+    // console.log(dbQuery)
     connection.query(dbQuery, function (err, res) {
         if (err) {
             throw err;
@@ -92,7 +92,7 @@ userSelect: function (table, column, user_id, cb) {
         //     objToSql(objectColVals) +
         //     " WHERE " +
         //     condition;
-        console.log(`dbQuery ${dbQuery}`)
+        // console.log(`dbQuery ${dbQuery}`)
         connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;
@@ -135,14 +135,14 @@ userSelect: function (table, column, user_id, cb) {
 //TWILIO GOALS FOR XML POPULATION TO PLACE CALLS
     twiloGoals: function (table, id, cb){ 
         var dbQuery = `SELECT name FROM ${table} WHERE ${id}`;
-        console.log(dbQuery)
+        // console.log(dbQuery)
         connection.query(dbQuery, function (err, res) {
             if (err) {
                 throw err;
                 console.log("error")
             }
             cb(res);
-            console.log(res)
+            // console.log(res)
         });
     },
    

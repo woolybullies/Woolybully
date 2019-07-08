@@ -18,7 +18,7 @@ cron.schedule('*/15 * * * * *', () => {
 var d = new Date();
 var h = d.getHours();
 var m = ("0" + d.getMinutes()).slice(-2);
-var textTime = `* ${m} ${h} * * *`
+var textTime = `${h}:${m}`
 
 //Generate Date in needed format
 var dd = ("0" + d.getDate()).slice(-2)
@@ -28,7 +28,7 @@ var curDate = `${yyyy}-${mm}-${dd}`;
 
 //Modify current time to trigger calls 2 hours prior 
 var cH = h + 2;
-var callTime = `* ${m} ${cH} * * *`
+var callTime = `${cH}:${m}`
 
 //format to update time stamp on SQL
 var texted = { last_fired: `${curDate}` }
@@ -58,12 +58,13 @@ function queryAlerts(textTime, texted) {
     //loop api response for data formatting to twilio API
     console.log(`Texts Phone -   ID  - Goal Name - Time`)
     for (i = 0; i < result.length; i++) {
-      var time = result[i].daily_occurance
+      ConvertTimeformat(result[i].daily_occurance)
+      var time = adjTime
       var phone = result[i].phone
       var id = result[i].id
       var goalName = result[i].name
       // console.log(time)
-      // console.log(`Texts ${phone} - ${id} - ${goalName} - ${time}`)
+      console.log(`Texts ${phone} - ${id} - ${goalName} - ${time}`)
     
       // console.log(`${textTime} | ${time}`)
     //if the time the user needs to be reminded matches the current time
@@ -86,6 +87,7 @@ function queryCalls(callTime, called) {
   
     //loop api response for data formatting to twilio API
     for (i = 0; i < result.length; i++) {
+      
       var time = result[i].daily_occurance
       var phone = result[i].phone
       var id = result[i].id
@@ -147,3 +149,17 @@ function updateTable(update, id) {
 
 }
 
+function ConvertTimeformat(selTime) {
+  var time = selTime
+  var hours = Number(time.match(/^(\d+)/)[1]);
+  var minutes = Number(time.match(/:(\d+)/)[1]);
+  var AMPM = time.match(/\s(.*)$/)[1];
+  if (AMPM == "PM" && hours < 12) hours = hours + 12;
+  if (AMPM == "AM" && hours == 12) hours = hours - 12;
+  var sHours = hours.toString();
+  var sMinutes = minutes.toString();
+  if (hours < 10) sHours = "0" + sHours;
+  if (minutes < 10) sMinutes = "0" + sMinutes;
+  console.log(sHours, sMinutes);
+  adjTime = `${sHours}:${sMinutes}`
+}

@@ -13,8 +13,8 @@ function categoryClick(categoryId){
     
     let name = $((categoryElement(categoryId))).val();
     let time = $((categoryElement(categoryId)) + "time").val();
-    ConvertTimeformat(time)
-    let daily_occurance = adjTime;
+    // ConvertTimeformat(time)
+    let daily_occurance = time;
 
     console.log(adjTime);
 

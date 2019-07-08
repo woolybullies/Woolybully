@@ -54,7 +54,7 @@ router.post("/api/goals/:userId", function (req, res) {
     console.log(req.body)
     goal_config.insertOne(req.params.userId, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake || 0 , req.body.status || 1 , function (data) {
         res.json(data);
-        console.log(data)
+        // console.log(data)
     });
   
 });
