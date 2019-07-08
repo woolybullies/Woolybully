@@ -23,8 +23,9 @@ var goal_config = {
     },
 
     updateOne: function (updateGoal, id, cb) {
-        orm.updateOne("goals", updateGoal, "id =" + id, function (res) {
+        orm.updateOne("goals", updateGoal, "id = " + id, function (res) {
             cb(res);
+            console.log(res)
         });
     },
     deleteOne: function (id, cb) {

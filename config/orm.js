@@ -93,12 +93,12 @@ userSelect: function (table, column, user_id, cb) {
         //     " WHERE " +
         //     condition;
         console.log(`dbQuery ${dbQuery}`)
-        // connection.query(dbQuery, function (err, res) {
-        //     if (err) {
-        //         throw err;
-        //     }
-        //     cb(res);
-        // });
+        connection.query(dbQuery, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
     },
 //DELETE
     deleteOne: function (table, condition, cb) {
