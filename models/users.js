@@ -1,5 +1,5 @@
 var orm = require("../config/orm.js");
-const uuid = require('uuid')
+
 
 var users = {
     all: function (cb) {
@@ -8,8 +8,8 @@ var users = {
         });
     },
 
-    insertOne: function (name, email, phone, cb) {
-        orm.insertOne("users","user_id, name, email, phone", "'" + uuid.v4() + "','" + name + "','" + email + "', '" + phone +  "'",  function (res) {
+    insertOne: function (user_id, name, email, phone, cb) {
+        orm.insertOne("users","user_id, name, email, phone", "'" + user_id + "','" + name + "','" + email + "', '" + phone +  "'",  function (res) {
             cb(res);
         });
     },

@@ -20,36 +20,30 @@ var orm = {
 
 //ADD NEW
     insertOne: function (table, cols, vals, cb) {
-        var dbQuery = "INSERT INTO " +
-            table +
-            " (" +
-            cols.toString() +
-            ")" +
-            "VALUE" +
-            "(" +
-            vals +
-            ")";
+        var dbQuery = `INSERT INTO ${table} (${cols.toString()}) VALUE (${vals});`;
+        
+        // "INSERT INTO " +
+        //     table +
+        //     " (" +
+        //     cols.toString() +
+        //     ")" +
+        //     "VALUE" +
+        //     "(" +
+        //     vals +
+        //     ")";
 
         console.log(dbQuery);
 
         connection.query(dbQuery, function (err, res) {
-            if (err) 
 
-            if(err.code == 'ER_DUP_ENTRY' || err.errno == 1062)
-            {
-                console.log('Alert duplicate entry')
-            }
-            else{
-               console.log('Other error in the query')
-            } else{
+            if(err){
+                console.log('Alert duplicate entry', err)
+            } else {
              console.log('No error in the query')
-          }
-            
-            // {
-            //     throw err;
-            // }
+            }
+
             cb(res);
-            // console.log(table);
+            console.log(res)
         });
     },
 
@@ -65,6 +59,25 @@ var orm = {
         });
     },
 
+// USER SELECT
+userSelect: function (table, column, user_id, cb) {
+    var dbQuery = "SELECT * FROM " + 
+    table + 
+    " WHERE " + 
+    column +
+    " = " +
+    "'"+user_id+"'" +
+    ";"
+    console.log(dbQuery)
+    connection.query(dbQuery, function (err, res) {
+        if (err) {
+            throw err;
+        }
+        cb(res);
+    });
+},
+
+
 //UPDATE
     updateOne: function (table, objectColVals, condition, cb) {
 
@@ -72,12 +85,13 @@ var orm = {
         table: ${table}
         object ${objectColVals}
         condition ${condition}`)
-        var dbQuery = "UPDATE " +
-            table +
-            " SET " +
-            objToSql(objectColVals) +
-            " WHERE " +
-            condition;
+        var dbQuery = `UPDATE ${table} SET ${objToSql(objectColVals)} WHERE ${condition}`;
+        // "UPDATE " +
+        //     table +
+        //     " SET " +
+        //     objToSql(objectColVals) +
+        //     " WHERE " +
+        //     condition;
         console.log(`dbQuery ${dbQuery}`)
         connection.query(dbQuery, function (err, res) {
             if (err) {
@@ -107,7 +121,7 @@ var orm = {
         FROM ${tableOne}, ${tableTwo}
         WHERE ${tableTwo}.${tableJoin} = ${tableOne}.${tableJoin}
         AND ${table1Col4} = 1
-        AND DATE(${table1Col3}) = CURDATE() -1
+        AND DATE(${table1Col3}) < CURDATE() 
         `;
 
         connection.query(dbQuery, function (err, res) {

@@ -5,7 +5,10 @@ $(document).ready(function () {
     $('.timepicker').timepicker();
 
 });
+
 let adjTime = ""
+
+
 function categoryClick(categoryId){
     
     let name = $((categoryElement(categoryId))).val();
@@ -13,10 +16,11 @@ function categoryClick(categoryId){
     ConvertTimeformat(time)
     let daily_occurance = adjTime;
 
+    console.log(adjTime);
 
     $.ajax({
         type: "POST",
-        url: "/api/goals",
+        url: "/api/goals/" + getCookie("userId") ,
         data: { "name": name, "daily_occurance": daily_occurance, "category_id": categoryId},
 
         success: function (data, textStatus, jQxhr) {
@@ -27,7 +31,6 @@ function categoryClick(categoryId){
         },
         dataType: "JSON"
     })
-    console.log(categoryElement(categoryId));
  return false;
 }
 
@@ -78,4 +81,21 @@ function categoryElement(categoryId){
         console.log(sHours, sMinutes);
         adjTime = `* ${sMinutes} ${sHours} * * *`
     }
-    ConvertTimeformat("10:00 PM")
+    // ConvertTimeformat("10:00 PM")
+
+      
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }

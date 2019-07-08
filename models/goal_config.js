@@ -9,6 +9,12 @@ var goal_config = {
         });
     },
 
+    selectUser: function (user_id, cb) {
+        orm.userSelect("goals", "user_id", user_id , function (res) {
+            cb(res);
+        });
+    },
+
     insertOne: function (user_id, name, category_id, daily_occurance, allow_wake, status,cb) {
 
         orm.insertOne("goals", "user_id, name, category_id, daily_occurance, allow_wake, status", "'" +  user_id + "','" + name + "','" + category_id + "','" + daily_occurance + "','" + allow_wake + "','" + status + "'",  function (res) {
@@ -17,8 +23,9 @@ var goal_config = {
     },
 
     updateOne: function (updateGoal, id, cb) {
-        orm.updateOne("goals", updateGoal, "id =" + id, function (res) {
+        orm.updateOne("goals", updateGoal, "id = " + id, function (res) {
             cb(res);
+            console.log(res)
         });
     },
     deleteOne: function (id, cb) {
@@ -38,6 +45,8 @@ var goal_config = {
             // console.log(res)
         });
     },
+    //find goals by userid
+
    twilioGoals : function (id, cb) {
         orm.twiloGoals("goals", "id =" + id,  function (res) {
             cb(res);

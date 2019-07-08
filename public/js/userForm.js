@@ -13,16 +13,24 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/api/users",
-            data: { "name": name, "email": email, "phone": phone },
+            data: { "name": name, "email": email, "phone": phone},
             success: function (data, textStatus, jQxhr) {
-                console.log(data);
+                setCookie("userId", data.message.userID);
+                window.location.replace("goals.html")
+                console.log(data.message.userID)
             },
             error: function (jqXhr, textStatus, errorThrown) {
-                console.log(errorThrown);
             },
             dataType: "JSON"
         })
-        window.location.replace("goals.html")
+    
     });
-   
 });
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
