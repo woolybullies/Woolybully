@@ -13,15 +13,17 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/api/users",
-            data: { "name": name, "email": email, "phone": phone },
+            data: { "name": name, "email": email, "phone": phone},
             success: function (data, textStatus, jQxhr) {
-                setCookie("userId", data.insertId, 3);
+                setCookie("userId", data.message.userID);
                 window.location.replace("goals.html")
+                console.log(data.message.userID)
             },
             error: function (jqXhr, textStatus, errorThrown) {
             },
             dataType: "JSON"
         })
+    
     });
 });
 

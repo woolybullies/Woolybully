@@ -121,7 +121,7 @@ userSelect: function (table, column, user_id, cb) {
         FROM ${tableOne}, ${tableTwo}
         WHERE ${tableTwo}.${tableJoin} = ${tableOne}.${tableJoin}
         AND ${table1Col4} = 1
-        AND DATE(${table1Col3}) = CURDATE() -1
+        AND DATE(${table1Col3}) < CURDATE() 
         `;
 
         connection.query(dbQuery, function (err, res) {

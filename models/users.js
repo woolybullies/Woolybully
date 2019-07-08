@@ -8,8 +8,8 @@ var users = {
         });
     },
 
-    insertOne: function (user_id, name, email, phone, password, cb) {
-        orm.insertOne("users","user_id, name, email, phone", "'" + user_id + "','" + name + "','" + email + "', '" + phone +  "', '" + password +  "'",  function (res) {
+    insertOne: function (user_id, name, email, phone, cb) {
+        orm.insertOne("users","user_id, name, email, phone", "'" + user_id + "','" + name + "','" + email + "', '" + phone +  "'",  function (res) {
             cb(res);
         });
     },

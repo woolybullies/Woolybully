@@ -21,7 +21,7 @@ router.post("/goalcreate/:user_id", function(req, res) {
 //CREATE User
 router.post("/api/users", function (req, res) {
     console.log(req.body)
-    users.insertOne(user_id, req.body.name, req.body.email, req.body.phone, req.body.password, function (data) {
+    users.insertOne(user_id, req.body.name, req.body.email, req.body.phone, function (data) {
         console.log(data);
         var form = {userID: user_id}
         // console.log(form)
@@ -52,7 +52,7 @@ router.delete("/api/users/:userId", function (req, res) {
 //ADD GOAL
 router.post("/api/goals/:userId", function (req, res) {
     console.log(req.body)
-    goal_config.insertOne(req.params.userId, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake || 0 , req.body.status || 0 , function (data) {
+    goal_config.insertOne(req.params.userId, req.body.name, req.body.category_id, req.body.daily_occurance, req.body.allow_wake || 0 , req.body.status || 1 , function (data) {
         res.json(data);
         console.log(data)
     });
