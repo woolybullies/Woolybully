@@ -20,15 +20,17 @@ var orm = {
 
 //ADD NEW
     insertOne: function (table, cols, vals, cb) {
-        var dbQuery = "INSERT INTO " +
-            table +
-            " (" +
-            cols.toString() +
-            ")" +
-            "VALUE" +
-            "(" +
-            vals +
-            ")";
+        var dbQuery = `INSERT INTO ${table} (${cols.toString()}) VALUE (${vals});`;
+        
+        // "INSERT INTO " +
+        //     table +
+        //     " (" +
+        //     cols.toString() +
+        //     ")" +
+        //     "VALUE" +
+        //     "(" +
+        //     vals +
+        //     ")";
 
         console.log(dbQuery);
 
@@ -41,6 +43,7 @@ var orm = {
             }
 
             cb(res);
+            console.log(res)
         });
     },
 
@@ -62,10 +65,10 @@ userSelect: function (table, column, user_id, cb) {
     table + 
     " WHERE " + 
     column +
-    "=" +
-    user_id +
+    " = " +
+    "'"+user_id+"'" +
     ";"
-
+    console.log(dbQuery)
     connection.query(dbQuery, function (err, res) {
         if (err) {
             throw err;
@@ -82,19 +85,20 @@ userSelect: function (table, column, user_id, cb) {
         table: ${table}
         object ${objectColVals}
         condition ${condition}`)
-        var dbQuery = "UPDATE " +
-            table +
-            " SET " +
-            objToSql(objectColVals) +
-            " WHERE " +
-            condition;
+        var dbQuery = `UPDATE ${table} SET ${objToSql(objectColVals)} WHERE ${condition}`;
+        // "UPDATE " +
+        //     table +
+        //     " SET " +
+        //     objToSql(objectColVals) +
+        //     " WHERE " +
+        //     condition;
         console.log(`dbQuery ${dbQuery}`)
-        connection.query(dbQuery, function (err, res) {
-            if (err) {
-                throw err;
-            }
-            cb(res);
-        });
+        // connection.query(dbQuery, function (err, res) {
+        //     if (err) {
+        //         throw err;
+        //     }
+        //     cb(res);
+        // });
     },
 //DELETE
     deleteOne: function (table, condition, cb) {
