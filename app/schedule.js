@@ -56,7 +56,7 @@ function queryAlerts(textTime, texted) {
     console.table(result)
 
     //loop api response for data formatting to twilio API
-    console.log(`Texts Phone -   ID  - Goal Name - Time`)
+    // console.log(`Texts Phone -   ID  - Goal Name - Time`)
     for (i = 0; i < result.length; i++) {
       ConvertTimeformat(result[i].daily_occurance)
       var time = adjTime
@@ -64,7 +64,7 @@ function queryAlerts(textTime, texted) {
       var id = result[i].id
       var goalName = result[i].name
       // console.log(time)
-      console.log(`Texts ${phone} - ${id} - ${goalName} - ${time}`)
+      // console.log(`Texts ${phone} - ${id} - ${goalName} - ${time}`)
     
       // console.log(`${textTime} | ${time}`)
     //if the time the user needs to be reminded matches the current time
@@ -88,12 +88,14 @@ function queryCalls(callTime, called) {
     //loop api response for data formatting to twilio API
     for (i = 0; i < result.length; i++) {
       
-      var time = result[i].daily_occurance
+      // var time = result[i].daily_occurance
+      ConvertTimeformat(result[i].daily_occurance)
+      var time = adjTime
       var phone = result[i].phone
       var id = result[i].id
 
       // console.log(time)
-      // console.log(`Calls ${phone} - ${id} - ${goalName} - ${time}`)
+      // console.log(`Calls ${phone} - ${id} - - ${time}`)
    
 
     //if the time matches 2 hours prior to the current time, send the call
@@ -160,6 +162,6 @@ function ConvertTimeformat(selTime) {
   var sMinutes = minutes.toString();
   if (hours < 10) sHours = "0" + sHours;
   if (minutes < 10) sMinutes = "0" + sMinutes;
-  console.log(sHours, sMinutes);
+  // console.log(sHours, sMinutes);
   adjTime = `${sHours}:${sMinutes}`
 }
