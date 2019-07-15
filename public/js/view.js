@@ -17,6 +17,9 @@ function categoryClick(categoryId){
     let daily_occurance = time;
 
     console.log(adjTime);
+    if (name || time == ""){
+      alert("YOU MUST ENTER A GOAL NAME AND TIME");
+    } else {
 
     $.ajax({
         type: "POST",
@@ -33,7 +36,7 @@ function categoryClick(categoryId){
     })
  return false;
 }
-
+}
 function categoryElement(categoryId){
       let elementId = "";
       switch(categoryId) {

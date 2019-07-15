@@ -9,6 +9,12 @@ $(document).ready(function () {
         let name = $("#formName").val();
         let email = $("#formEmail").val();
         let phone = $("#formPhoneNumber").val();
+        formatPhoneNumber(phone) 
+
+        if (name || email || phone == ""){
+        alert("YOU MUST ENTER A VALID NAME, EMAIL, or PHONE NUMBER");
+
+        } else {
 
         $.ajax({
             type: "POST",
@@ -22,9 +28,13 @@ $(document).ready(function () {
             error: function (jqXhr, textStatus, errorThrown) {
             },
             dataType: "JSON"
-        })
+        });
+    } 
+       
+
     
     });
+
 });
 
 function setCookie(cname, cvalue, exdays) {
@@ -34,3 +44,14 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
+
+  function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+    var match = cleaned.match(/^1(\d{3})(\d{3})(\d{4})$/)
+    if (match) {
+      console.log(match[1] + match[2] + match[3])
+      return match[1] + match[2] + match[3]
+    }
+    return null
+   }
+  ​

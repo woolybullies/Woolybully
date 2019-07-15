@@ -5,6 +5,7 @@ $(document).ready(function () {
     function goalGetter() {
 
         console.log("Goal CALLED!")
+    
 
         $.ajax({
             type: "GET",
