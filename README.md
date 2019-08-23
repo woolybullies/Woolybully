@@ -1,6 +1,6 @@
 # Woolybully
 
-The "Damn, You Live Like This?" reminder app. Set up to-do lists and goals, and Wooly Bully will bully you into being the best version of yourself with timed reminders, phone calls, and public shaming. Be Better. Get Bullied. Wooly Bully.
+The "Wohh, You Live Like This?" reminder app. Set up to-do lists and goals, and Wooly Bully will bully you into being the best version of yourself with timed reminders, phone calls, and public shaming. Be Better. Get Bullied. Wooly Bully.
 
 ## Table of contents
 * [General info](#general-info)
